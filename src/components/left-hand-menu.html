@@ -1,0 +1,10 @@
+<template bindable="router"> 
+    <div style.bind="navTop">
+        <ul class="nav"  >
+                <li repeat.for="row of router.navigation" class="${row.isActive ? 'menu-item-content active' : 'menu-item-content'}">
+                    <a href.bind="row.href">${row.title}</a>
+                </li>
+        </ul>
+        <div style="text-align:right;padding-right:10px;padding-bottom:10px;"><a click.delegate="ScrollToTop()" show.bind="pixelsScrolled >= 100">Go to Top&nbsp;&nbsp;<i class="icon-uparrow"></i></a></div>
+    </div>
+</template>

@@ -1,0 +1,150 @@
+<template>
+    <require from="resources/custom-elements/date-picker"></require>
+    <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+    <ux-dialog class="form-dialog">
+        <ux-dialog-header>
+            <div class="header">
+                <span if.bind="!isUpdate" i18n="site.dialog.title" id="dialogHeader"></span>
+                <span if.bind="isUpdate" i18n="site.dialog.updateTitle" id="dialogHeader"></span>
+            </div>
+        </ux-dialog-header>
+        <ux-dialog-body class="new-site-body">
+            <form role="form" class="form-horizontal">
+                <!-- first row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.name"></span>
+                            </label>
+                            <input id="siteName" type="text" class="form-control" value.bind="site.name & validate" attach-focus="true">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.callSign"></span>
+                            </label>
+                            <input id="callSign" type="text" class="form-control" value.bind="site.callSign & validate">
+                        </div>
+                    </div>
+                </div>
+                <!-- second row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.type"></span>
+                            </label>
+                            <select id="type" class="form-control" value.bind="site.type & validate" change.delegate="onSiteTypeChange(site.type)">
+                                <option repeat.for="option of siteTypeOptions" value.bind='option.value'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1" if.bind="!isAircraft">
+                        <div class="form-group">
+                            <label  class="control-label dialog-form-label"><span i18n="site.subType"></span></label>
+                            <select id="subType" class="form-control" value.bind="site.subType & validate">
+                                <option repeat.for="option of siteSubTypeOptions" value.bind='option.value'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- third row -->
+                <div class="row" if.bind="!isAircraft">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.imoNumber"></span>
+                            </label>
+                            <input id="imoNumber" type="text" class="form-control" value.bind="site.imoNumber & validate">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.mmsi"></span>
+                            </label>
+                            <input id="mmsi" type="text" class="form-control" value.bind="site.mmsi & validate">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" if.bind="isAircraft">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.tailNumber"></span>
+                            </label>
+                            <input id="tailNumber" type="text" class="form-control" value.bind="site.tailNumber & validate">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.icaoNumber"></span>
+                            </label>
+                            <input id="icaoNumber" type="text" class="form-control" value.bind="site.icaoNumber & validate">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label required dialog-form-label">
+                                <span i18n="site.country"></span>
+                            </label>
+                            <select id="country" class="form-control" value.bind="site.country & validate">
+                                <option repeat.for="option of countryOptions" value.bind='option.key'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label">
+                                <span i18n="site.address"></span>
+                            </label>
+                            <select id="siteAddress" class="form-control" value.bind="site.address & validate">
+                                <option repeat.for="option of addresses" value.bind='option.key'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- fifth row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="required control-label dialog-form-label">
+                                <span i18n="common.startDate"></span>
+                            </label>
+                            <date-picker id="startDate" value.two-way="site.startDate & validate"></date-picker>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="common.endDate"></span></label>
+                            <date-picker id="endDate" start-date.bind="site.startDate" value.two-way="site.endDate & validate"></date-picker>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label">
+                                <span i18n="site.contacts"></span>
+                            </label>
+                            <select id="contacts" class="form-control mutiple-select" value.bind="site.contacts & validate" multiple>
+                                <option repeat.for="option of contacts" value.bind='option.key'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button if.bind="!isUpdate" class="primary" click.trigger="submit()" id="siteDialogButton" i18n="buttons.create"></button>
+            <input if.bind="isUpdate" type="hidden" value.bind="site.id" />
+            <button if.bind="isUpdate" class="primary" click.trigger="submit()" id="siteDialogButton" i18n="buttons.update"></button>
+            <button click.trigger="controller.cancel()" i18n="buttons.cancel" id="dialogCancel"></button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

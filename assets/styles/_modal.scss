@@ -1,0 +1,28 @@
+.modal-footer, .modal-body, .modal-header {
+  border: 0px;
+}
+
+ux-dialog > {
+  ux-dialog-header, ux-dialog-footer, ux-dialog-body{
+    border: 0px !important;
+    padding: 5px 15px !important;
+    
+  }
+  ux-dialog-header h3{
+    padding: 0px !important;
+  }
+}
+
+.form-dialog {
+    width: 600px;
+    padding: 30px 20px 30px 30px;
+    .header {
+        font-size: 32px;
+        margin-left: -15px;
+        color: $dark-blue;
+        margin-bottom: 15px;
+    }
+    .down-20-px {
+        padding-top: 20px;
+    }
+}

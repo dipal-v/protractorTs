@@ -1,0 +1,331 @@
+.navbar-default {
+  border-color: $background-darker-95;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+  font-size: 11px;
+  margin-bottom: 0px;
+  border-bottom: 0px;
+  min-height: $navbar-min-height;
+}
+
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0px;
+}
+
+.navbar-main {
+  position: relative;
+  min-height: $navbar-min-height;
+  background: transparent;
+  border: 0px solid transparent;
+}
+
+// Base class
+// --------------------------------------------------
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  // Override default ul/ol
+  list-style: none;
+  @include clearfix();
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: white;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+
+  // Nav dividers (deprecated with v3.0.1)
+  //
+  // This should have been removed in v3 with the dropping of `.nav-list`, but
+  // we missed it. We don't currently support this anywhere, but in the interest
+  // of maintaining backward compatibility in case you use it, it's deprecated.
+  .nav-divider {
+    @include nav-divider();
+  }
+
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
+
+// Pills
+// -------------------------
+.nav-pills {
+  > li {
+    float: left;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-left: 1em;
+    text-indent: -.7em;
+    // Links rendered as pills
+    > a {
+      padding-top: 0px;
+      padding-left: 15px;
+      padding-right: 5px;
+      display: inline; // initial is ignored by IE 9
+      // reference: http://stackoverflow.com/questions/15995816/what-happens-with-displayinitial-on-non-css3-browsers
+    }
+    + li {
+      margin-left: 2px;
+      white-space: nowrap;
+    }
+    + li:before {
+      content: "\2022";
+      position: relative;
+      top: -3px;
+      font-size: 8px;
+      color: $green-dot-in-top;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        padding-top: 0px;
+        padding-left: -20px;
+      }
+    }
+  }
+}
+
+.nav-pills > li {
+  display: inline;
+  color: $general-body-text-color;
+  > a {
+    color: $general-body-text-color;
+  }
+}
+
+.menu-content-container {
+  position: relative;
+  @include background-gradient($background-darker-48, $background-color);
+  min-height: 200px;
+  border-top: 1px solid $main-menu-border-top;
+}
+
+#submenu {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  border-left: 1px solid $main-menu-border-top;
+  border-right: 1px solid $main-menu-border-top;
+}
+
+#submenu > ul > .active {
+  position: relative;
+  left: -1px;
+}
+
+#submenu > ul > a:hover {
+  border: 0px;
+}
+
+#submenu > ul > li > a {
+  border-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  border-bottom: 4px dashed transparent;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  border-bottom: 4px solid $bottom-in-submenu;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: $sep-header-color;
+  border-bottom: 4px solid $bottom-in-submenu;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+}
+
+#submenu > ul > .active {
+  background-color: $background-color;
+  border-right: 1px solid $main-menu-border-top;
+  border-left: 1px solid $main-menu-border-top;
+  border-bottom: 0px;
+}
+
+#submenu > .navbar-nav > .active > a,
+#submenu > .navbar-nav > .active > a:hover,
+#submenu > .navbar-nav > .active > a:focus {
+  border-bottom: 4px solid $background-color;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 11px;
+  top: 2px;
+}
+
+.first-level > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: none;
+  padding: 10px 0px 10px;
+  color: $inactive-menu-link;
+  font-size: 16px;
+  font-family: $font-family-base;
+  text-decoration: none;
+  text-shadow: 0 1px 0 $background-color;
+  margin-right: 40px;
+  margin-top: 5px;
+}
+
+.container.submenu {
+  background-color: $background-darker-22;
+  border-top: 1px solid $main-menu-border-top;
+  padding-left: 0px;
+}
+
+ul.nav.vertical-submenu {
+  background-color: #E9ECED;
+  border-right: 1px solid #bdbdbe;
+  width: 200px;
+}
+
+.left-menu-msisdn {
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+  padding:10px;
+}
+
+.nav > li.left-menu-msisdn > a {
+  display: inline;
+  color: #18B4CE;
+  font-size: 10px;
+}
+
+.nav > li.left-menu-msisdn > a:hover,
+.nav > li.left-menu-msisdn > a:focus,
+.nav > li.left-menu-msisdn > a:active {
+  background-color: transparent;
+}
+
+.menu-item-content {
+  border-left: 4px solid #E9ECED;
+}
+
+.menu-item-content:hover,
+li.menu-item-content.active {
+  border-left: 4px solid $green;
+}
+
+ul > li.menu-item-content > a {
+  padding-top: 5px;
+  padding-left: 45px;
+}
+
+li.menu-item-content.active,
+li.menu-item-content.active > a,
+li.menu-item-content.active > a:hover,
+.nav > li.menu-item-content > a:focus {
+  background-color:#B4B4BE;
+  color: $background-color;
+  font-size: 12px;
+}
+
+li.menu-item-content > a {
+  color: #18B4CE;
+}
+
+ul > li.menu-item-content > a:hover {
+  color: #18b4ce;
+  background-color: $background-darker-20;
+}
+
+ul > li > a.menu-item-icon-node {
+  padding-left: 45px;
+  background-color: #F8F8F8;
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+ul > li > a.menu-item-icon-open-true {
+  background: url(../images/tree-collapse-icon.png) no-repeat 14px 10px;
+}
+
+ul > li > a.menu-item-icon-open-true:hover {
+  background: url(../images/tree-collapse-icon_hover.png) no-repeat 14px 10px;
+}
+
+ul > li > a.menu-item-icon-open-false {
+  background: url(../images/tree-expand-icon.png) no-repeat 14px 10px;
+}
+
+ul > li > a.menu-item-icon-open-false:hover {
+  background: url(../images/tree-expand-icon_hover.png) no-repeat 14px 10px;
+}
+
+.menu-item-icon-node {
+  position: relative;
+  background-position-y: center;
+  background: url(../images/tree-collapse-icon.png) no-repeat 14px 10px;
+  padding-left: 13px;
+  margin-left: 1px;
+}
+
+.menu-item-icon-tree {
+  background: url(../images/leftHandMenu_bullet.png) 17px 18px repeat-y;
+  background-position-y: center;
+  padding-left: 27px;
+  cursor: pointer;
+}
+
+.menu-item-icon-tree-last {
+  background: url(../images/leftHandMenu_bullet_last.png) 17px 18px repeat-y;
+  background-position-y: center;
+  padding-left: 27px;
+  cursor: pointer;
+}
+
+

@@ -1,0 +1,21 @@
+@startuml
+
+title Scenario: Sign in via Inmarsat Corporate Network
+
+actor "Inmarsat Employee"
+participant "Leto in Browser"
+participant "idAM"
+
+"Inmarsat Employee" -> "Leto in Browser": First time visit
+note right: visit with no access token
+"Leto in Browser" -> "Leto in Browser": have a valid access token? No
+"Leto in Browser" -> "idAM": Authenticate against idAM
+note left: Kerberos protocol
+"idAM" -> "Leto in Browser": Redirect to the same url with access token
+"Leto in Browser" -> "Leto in Browser": extract access token
+note left: map unknown route
+"Leto in Browser" -> "Leto in Browser": store access token in cookie
+"Leto in Browser" -> "Inmarsat Employee": Default page
+note right: it is an internal redirect
+
+@enduml

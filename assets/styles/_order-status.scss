@@ -1,0 +1,40 @@
+.status-complete {
+  color: $brand-info-color;
+}
+.status-approved {
+  color: $brand-info-color;
+}
+.status-pending {
+  color: $brand-warning-color;
+}
+
+.status-cancelled {
+  color: $brand-error-color;
+}
+
+.status-created {
+  color: $brand-info-color;
+}
+
+.status-active {
+  color: $brand-info-color;
+}
+
+.status-failed {
+  color: $brand-danger-color;
+}
+
+.status-in-progress {
+  color: $brand-warning-color;
+}
+
+.status-expired {
+  color: $brand-error-color;
+}
+
+.status-redeemed {
+  color: $brand-info-color;
+}
+.status-rejected {
+  color: $brand-danger-color;
+}

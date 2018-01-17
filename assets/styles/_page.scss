@@ -1,0 +1,140 @@
+.pagetitle {
+  color: $dark-blue;
+  font-size: 32px;
+}
+
+.pad-my-top-30 {
+  padding-top: 30px
+}
+
+.pad-my-top-15 {
+  padding-top: 15px
+}
+
+
+.page-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.padded-title
+{
+	padding: 10px;
+}
+
+.alert-box
+{
+	background-color: $dark-grey;
+	padding: 10px;
+	color: $orange-peel;
+}
+
+.color-box-large
+{
+	width: 196px;
+	height: 104px;
+}
+
+.color-box-medium
+{
+	width: 150px;
+	height: 52px;
+}
+
+.green-bg
+{
+	background-color: $green;
+	color: #FFFFFF;
+}
+
+.off-green-bg
+{
+	background-color: $off-green;
+	color: #FFFFFF;
+}
+
+.red-bg
+{
+	background-color: $red;
+	color: #FFFFFF;
+}
+
+.ruby-bg
+{
+	background-color: $ruby;
+	color: #FFFFFF;
+}
+
+.grey-bg
+{
+	background-color: #DBDBDB;
+	color: #000000;
+}
+.grey-grad-bg
+{
+	
+	color: #000000;
+	background: #EFEFEF; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#F7F7F7, #EFEFEF); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#F7F7F7, #EFEFEF); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#F7F7F7, #EFEFEF); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#F7F7F7, #EFEFEF); /* Standard syntax */
+	border: 1px #EFEFEF;
+}
+
+.purple-bg
+{
+	background-color: $purple;
+	color: #FFFFFF;
+}
+
+.light-grey-bg
+{
+	background-color: #EEEEEE;
+}
+
+.dark-blue-bg
+{
+	background-color: $dark-blue;
+	color: #FFFFFF;
+}
+
+.bright-blue-bg
+{
+	background-color: $bright-blue;
+	color: #FFFFFF;
+}
+
+.orange-bg
+{
+	background-color: $safety-orange;
+	color: #FFFFFF;
+}
+
+.orange-peel-bg
+{
+	background-color: $orange-peel;
+	color: #FFFFFF;
+}
+
+.yellow-bg
+{
+	background-color: $yellow;
+	color: #FFFFFF;
+}
+
+.entity-grid
+{
+        width: 100%;
+        height: 620px;
+}
+
+.h3{
+  font-size: 22px;
+  color: $dark-blue;
+}
+
+#pageTitle{
+  font-size: 32px;
+  color: $dark-blue;
+}

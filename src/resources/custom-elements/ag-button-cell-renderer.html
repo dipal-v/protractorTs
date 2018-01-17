@@ -1,0 +1,8 @@
+<template>
+  <a click.delegate="sendEdit($event)" if.bind="editEvent" class="editButton">
+    <span class="glyphicon glyphicon-edit"></span>
+  </a>
+  <a click.delegate="sendDelete($event)" if.bind="deleteEvent" class="deleteButton">
+    <span class="glyphicon glyphicon-trash"></span>
+  </a>
+</template>

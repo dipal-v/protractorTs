@@ -1,0 +1,133 @@
+<template>
+    <require from="resources/custom-elements/date-picker"></require>
+    <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+    <ux-dialog class="new-address form-dialog">
+        <ux-dialog-header>
+            <div class="header">
+                <span if.bind="!isUpdate" i18n="address.dialog.title" id="dialogHeader"></span>
+                <span if.bind="isUpdate" i18n="address.dialog.updateTitle" id="dialogHeader"></span>
+            </div>
+        </ux-dialog-header>
+        <ux-dialog-body class="new-address-body">
+            <form role="form" class="form-horizontal">
+                <!-- first row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.careOfName"></span></label>
+                            <input id="careOfName" type="text" class="form-control" value.two-way="address.careOfName" attach-focus="true">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.poBox"></span></label>
+                            <input id="poBox" type="text" class="form-control" value.two-way="address.poBox">
+                        </div>
+                    </div>
+                </div>
+                <!-- second row -->
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label required">
+                                <span i18n="address.addressLine1"></span>
+                            </label>
+                            <input id="addressLine1" type="text" class="form-control" value.two-way="address.addressLine1 & validate">
+                        </div>
+                    </div>
+                </div>
+                <!-- third row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.addressLine2"></span></label>
+                            <input id="addressLine2" type="text" class="form-control" value.two-way="address.addressLine2">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.addressLine3"></span></label>
+                            <input id="addressLine3" type="text" class="form-control" value.two-way="address.addressLine3">
+                        </div>
+                    </div>
+                </div>
+                <!-- fourth row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label required">
+                                <span i18n="address.city"></span>
+                            </label>
+                            <input id="city" type="text" class="form-control" value.two-way="address.city & validate">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.dist"></span></label>
+                            <input id="dist" type="text" class="form-control" value.two-way="address.dist">
+                        </div>
+                    </div>
+                </div>
+                <!-- fifth row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.postalCode"></span></label>
+                            <input id="postalCode" type="text" class="form-control" value.two-way="address.postalCode">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.postalCodeExt"></span></label>
+                            <input id="postalCodeExt" type="text" class="form-control" value.two-way="address.postalCodeExt">
+                        </div>
+                    </div>
+                </div>
+                <!-- sixth row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="address.stateProvince"></span></label>
+                            <select ng-options='stateOptions' id="isoStateProvince" value.bind="address.isoStateProvince & validate" class="form-control">
+                                <option repeat.for="option of stateOptions" value.bind="option.key">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label required">
+                                <span i18n="address.country"></span>
+                            </label>
+                            <select id="isoCountryCode" value.bind="address.isoCountryCode & validate" class="form-control" change.delegate="getStates(address.isoCountryCode)">
+                                <option repeat.for="option of countryOptions" value.bind="option.key">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- last row -->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label required">
+                                <span i18n="common.startDate"></span>
+                            </label>
+                            <date-picker id="startDate" value.two-way="address.startDate & validate"></date-picker>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label dialog-form-label"><span i18n="common.endDate"></span></label>
+                            <date-picker id="endDate" start-date.bind="address.startDate" value.two-way="address.endDate & validate"></date-picker>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button if.bind="!isUpdate" class="primary" click.trigger="submit()" id="addressDialogButton" i18n="buttons.create"></button>
+            <input if.bind="isUpdate" type="hidden" value.bind="address.id" />
+            <button if.bind="isUpdate" class="primary" click.trigger="submit()" id="addressDialogButton" i18n="buttons.update"></button>
+            <button click.trigger="controller.cancel()" i18n="buttons.cancel"></button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

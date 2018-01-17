@@ -1,0 +1,36 @@
+@Library('CAA-Ceres-CI')
+import com.inmarsat.caa.SonarQube
+import com.inmarsat.caa.Leto
+
+sonar = new SonarQube()
+leto = new Leto()
+
+node('master') {
+    wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
+        slack_stage('Prepare', ':nodejs:'){
+            leto.prepare()
+        }
+        stage('Test'){
+            parallel(
+                'Unit Test': {
+                    slack_stage('Unit Test', ':jestjs:'){
+                        leto.jest()
+                    }
+                },
+                'Vulnerability Check': {
+                    slack_stage('Vulnerability Check', ':snyk:'){
+                        leto.snyk()
+                    }
+                },
+                'BDD Test': {
+                    slack_stage('BDD Test', ':cucumberjs:'){
+                        leto.cucumber()
+                    }
+                }
+            )
+        }
+        slack_stage('SonarQube analysis', ':sonarqube:'){
+            sonar.analyzeLetoPR()
+        }
+    }
+}

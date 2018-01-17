@@ -1,0 +1,90 @@
+/* ACTION buttons: */
+
+button {
+  color: $secondary-normal-button-color;
+  font-size: $secondary-normal-button-font-size;
+  border: $secondary-normal-button-border;
+  background-color: $secondary-normal-button-inner-bottom-color;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  @include background-gradient($secondary-normal-button-inner-top-color, $secondary-normal-button-inner-bottom-color);
+}
+
+//NORMAL primary
+button.primary {
+  color: $primary-normal-button-color;
+  font-size: $primary-normal-button-font-size;
+  border: $primary-normal-button-border;
+  background-color: $primary-normal-button-inner-bottom-color;
+  @include background-gradient($primary-normal-button-inner-top-color, $primary-normal-button-inner-bottom-color);
+}
+
+button.primary, button.secondary, button.disabled  {
+  height: 30px;
+}
+
+//DISABLED
+button.disabled , button.disabled:hover, button[disabled], button[disabled]:hover, button.primary[disabled], button.primary[disabled]:hover,  button.secondary[disabled], button.secondary[disabled]:hover{
+  color: $disabled-font-color;
+  border: 1px solid $disabled-border;
+  background-color: $disabled-top-gradient;
+  cursor: not-allowed;
+  @include  background-gradient($disabled-top-gradient, $disabled-bottom-gradient);
+}
+
+//SMALL
+button.primary.small {
+  font-size: $primary-small-button-font-size;
+}
+
+//NORMAL & SMALL hover
+button.primary:hover {
+  border: 1px solid $primary-normal-button-border-hover;
+  background-color: $primary-normal-button-inner-bottom-hover-color;
+
+
+  @include background-gradient($primary-normal-button-inner-top-hover-color, $primary-normal-button-inner-bottom-hover-color);
+}
+
+button:hover {
+  border: $secondary-normal-button-border-hover;
+  background-color: $secondary-normal-button-inner-bottom-hover-color;
+
+  @include background-gradient($secondary-normal-button-inner-top-hover-color, $secondary-normal-button-inner-bottom-hover-color);
+}
+
+button.small {
+  font-size: $secondary-small-button-font-size;
+  height: 20px;
+}
+
+button.form-control {
+  border: $secondary-normal-button-border;
+  background-color: $secondary-normal-button-inner-bottom-color;
+
+  @include background-gradient($secondary-normal-button-inner-top-color, $secondary-normal-button-inner-bottom-color);
+}
+
+button.form-control:hover{
+  border: $secondary-normal-button-border-hover;
+  background-color: $secondary-normal-button-inner-bottom-hover-color;
+
+  @include background-gradient($secondary-normal-button-inner-top-hover-color, $secondary-normal-button-inner-bottom-hover-color);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .btn-default.dropdown-toggle {
+  color: $background-darker-800;
+  background-color: $background-darker-100;
+  border-color: $background-darker-321;
+}
+
+.btn-default {
+  color: $general-body-text-color;
+  background-color: $background-color;
+  border-color: $light-for-grid-color;
+}

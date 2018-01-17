@@ -1,0 +1,178 @@
+<template>
+    <require from="components/tab-content.html"></require>
+    <require from="resources/custom-elements/time-stamp"></require>
+    <require from="resources/custom-elements/messages"></require>
+    <require from="resources/custom-elements/switch-button"></require>
+    <tab-content>
+        <form role = "form" class="form-horizontal">
+            <input type="hidden" value.bind="entity.legalEntityCode"/>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" id="pageTitle">${heading}</p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <button id="updateButton" class = "btn btn-primary btn-sm" type = "submit" click.delegate="update()" i18n="buttons.submit"></button>
+                    <a id="cancelButton" class="btn btn-default btn-sm" route-href="route: organisations;" i18n="buttons.cancel"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.primaryName"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input id="primaryName" type="text" value.bind="entity.details.primaryName & validate" class="form-control" i18n="[placeholder]entity.primaryName"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.entityCode"></span></label>
+                        <div class="col-sm-8">
+                            <label class="control-label data-label">${entity.legalEntityCode}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.entityType"></span></label>
+                        <div class="col-sm-8">
+                            <label class="control-label data-label" >${entity.type}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.organiztionType"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="organizationType" value.bind="entity.details.type & validate" class="form-control">
+                                <option repeat.for="option of organizationTypeOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.parent"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <div class="input-group">
+                                <aubs-typeahead id="parent" data.call="getEntittiesByPrimaryName(filter, limit)" value.bind="entity.parent" debounce.bind="350" i18n="[placeholder]entity.parent"
+                                                key.bind="details.primaryName" results-limit.bind="10" focus-first.bind="false">
+                                </aubs-typeahead>
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.alias"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input id="alias" type="text" value.bind="entity.alias & validate" class="form-control" i18n="[placeholder]entity.alias"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.legalName"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input id="legalName" type="text" value.bind="entity.details.legalName & validate" class="form-control" i18n="[placeholder]entity.legalName"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.language"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="language" value.bind="entity.language & validate" class="form-control">
+                                <option repeat.for="option of languageOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.creditRegion"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="creditRegion" value.bind="entity.details.creditRegion & validate" class="form-control">
+                                <option repeat.for="option of creditRegionOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.collector"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input id="collector" type="text" value.bind="entity.collector & validate" class="form-control" i18n="[placeholder]entity.collector"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.creditStatus"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="creditStatus" value.bind="entity.details.creditStatus & validate" class="form-control">
+                                <option repeat.for="option of creditStatusOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label"><span i18n="entity.serviceLevelAgreement"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="serviceLevelAgreement" value.bind="entity.details.serviceLevelAgreement & validate" class="form-control">
+                                <option repeat.for="option of serviceLevelAgreementOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.created"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <div><time-stamp date.bind="entity.createdDate"/></div>
+                            <div><span i18n="common.by"></span> ${entity.createdBy}</div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.modified"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <div><time-stamp date.bind="entity.lastModifiedDate"/></div>
+                            <div><span i18n="common.by"></span> ${entity.lastModifiedBy}</div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="common.startDate"></span></label>
+                        <label class="col-sm-8 control-label data-label"><time-stamp date.bind="entity.startDate"/></label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="common.endDate"></span></label>
+                        <label class="col-sm-8 control-label data-label"><time-stamp date.bind="entity.endDate"/></label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <p class="h3" i18n="entity.blockingStatus"></p>
+                    </div>
+                    <div class="col-sm-11 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required form-label"><span i18n="entity.ordering"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button id="orderingBlock" checked.two-way="entity.details.orderingBlock" disable.bind="disableStatus"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.orderingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                            <label class="col-sm-2 control-label required form-label"><span i18n="entity.delivery"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button id="deliveryBlock" checked.two-way="entity.details.deliveryBlock" disable.bind="disableStatus"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.deliveryBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required form-label"><span i18n="entity.posting"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button id="postingBlock" checked.two-way="entity.details.postingBlock" disable.bind="disableStatus"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.postingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                            <label class="col-sm-2 control-label required form-label"><span i18n="entity.billing"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button id="billingBlock" checked.two-way="entity.details.billingBlock" disable.bind="disableStatus"
+											   on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.billingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </tab-content>
+</template>

@@ -1,0 +1,192 @@
+<template>
+  <require from="resources/custom-elements/date-picker"></require>
+  <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+  <require from="resources/custom-elements/switch-button"></require>
+  <ux-dialog class="form-dialog">
+    <ux-dialog-header>
+      <div class="header">
+        <span if.bind="!isUpdate" i18n="account.dialog.title" id="dialogHeader"></span>
+        <span if.bind="isUpdate" i18n="account.dialog.updateTitle" id="dialogHeader"></span>
+      </div>		
+    </ux-dialog-header>
+    <ux-dialog-body class="new-account-body">
+      <form role="form" class="form-horizontal">
+        <!-- first row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.name"></span></label>
+              <input id="accountName" type="text" class="form-control" value.bind="account.name & validate" attach-focus="true">
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.postingAccount"></span></label>
+              <input id="postingAccount" type="text" class="form-control" value.bind="account.postingAccount & validate">
+            </div>
+          </div>
+        </div>
+        <!-- second row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.type"></span></label>
+              <select id="type" class="form-control" value.bind="account.type & validate">
+                <option i18n="common.pleaseSelect" value="" if.bind="!isUpdate"> </option>
+                <option repeat.for="option of accountTypeOptions" value.bind='option'>${option}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="account.paymentMethod"></span></label>
+              <select id="paymentMethod" class="form-control" value.bind="account.paymentMethod & validate">
+                <option repeat.for="option of paymentMethodOptions" value.bind='option.value'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- third row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.invoiceReportLevel"></span></label>
+              <select id="invoiceReportLevel" class="form-control" value.bind="account.invoiceReportLevel & validate">
+                <option repeat.for="option of invoiceReportLevelOptions" value.bind='option.value'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.invoiceFormat"></span></label>
+              <select id="invoiceFormat" class="form-control" value.bind="account.invoiceFormat & validate">
+                <option repeat.for="option of invoiceFormatOptions" value.bind='option.value'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- fourth row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="account.comments"></span></label>
+              <input id="comments" type="text" class="form-control" value.bind="account.comments">
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.post"></span></label>
+              <switch-button class="${account.post ? 'success': 'danger'}" id="post" checked.two-way="account.post & validate" on-text="Yes" off-text="No" on-color="success" off-color="danger"></switch-button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.invoicePrintPriority"></span></label>
+              <switch-button class="${account.invoicePrintPriority ? 'success': 'danger'}" id="invoicePrintPriority" checked.two-way="account.invoicePrintPriority & validate" on-text="Yes" off-text="No" on-color="success" off-color="danger"></switch-button>
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-2">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.statementIndicator"></span></label>
+              <switch-button class="${account.statementIndicator ? 'success': 'danger'}" id="statementIndicator" checked.two-way="account.statementIndicator & validate" on-text="Yes" off-text="No" on-color="success" off-color="danger"></switch-button>
+            </div>
+          </div>
+        </div>
+        <!-- fifth row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="required control-label dialog-form-label"><span i18n="common.startDate"></span></label>
+              <date-picker id="startDate" value.two-way="account.startDate & validate"></date-picker>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="common.endDate"></span></label>
+              <date-picker id="endDate" start-date.bind="account.startDate" value.two-way="account.endDate & validate"></date-picker>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.billingAddress"></span></label>
+              <select id="billingAddress" class="form-control" value.bind="account.billingAddress & validate">
+                <option repeat.for="option of addresses" value.bind='option.key'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label required dialog-form-label"><span i18n="account.billingContact"></span></label>
+              <select id="billdingContact" class="form-control" value.bind="account.billingContact & validate">
+                <option repeat.for="option of contacts" value.bind='option.key'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <p class="h3" i18n="account.shippingDetails"></p>
+          </div>
+          <div class="col-sm-4 text-right header-right-buttons">
+            <button if.bind="!showShippingDetails" class="btn btn-primary btn-sm" click.delegate="addShippingDetails()" i18n="buttons.addShippingDetails" id="addShippingDetails"></button>
+          </div>
+        </div>
+        <div class="row" if.bind="showShippingDetails">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="account.shippingAddress"></span></label>
+              <select id="shippingAddress" class="form-control" value.bind="account.shippingAddress">
+                <option repeat.for="option of addresses" value.bind='option.key'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="account.shippingContact"></span></label>
+              <select id="shippingContact" class="form-control" value.bind="account.shippingContact">
+                <option repeat.for="option of contacts" value.bind='option.key'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2 col-sm-offset-1 down-20-px">
+            <button class="btn" click.trigger="addShippingDetail()" id="addShippingDetail" i18n="buttons.addShippingDetail"></button>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div style="width: 100%; height: 150px">
+            <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height:100%" grid-options.bind="shippingDetailsGrid.gridOptions">
+              <ag-grid-column i18n='[header-name]account.shippingAddress' field='address'></ag-grid-column>
+              <ag-grid-column i18n='[header-name]account.shippingContact' field='contact'></ag-grid-column>
+              <ag-grid-column i18n='[header-name]common.actions' field="id">
+                <ag-cell-template>
+                  <ag-button-cell-renderer delete-event="deleteShippingDetail" id="${params.value}"></ag-button-cell-renderer>
+                </ag-cell-template>
+              </ag-grid-column>
+            </ag-grid-aurelia>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="site.sites"></span></label>
+              <select id="sites" class="form-control mutiple-select" value.bind="account.sites & validate" multiple>
+                <option repeat.for="option of sites" value.bind='option.id'>${option.name}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ux-dialog-body>
+    <ux-dialog-footer>
+      <button if.bind="!isUpdate" class="primary" click.trigger="submit()" id="accountDialogButton" i18n="buttons.create"></button>
+      <input if.bind="isUpdate" type="hidden" value.bind="account.accountNumber"/>
+      <button if.bind="isUpdate" class="primary" click.trigger="submit()" id="accountDialogButton" i18n="buttons.update"></button>
+      <button click.trigger="controller.cancel()" i18n="buttons.cancel" id="dialogCancel"></button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>

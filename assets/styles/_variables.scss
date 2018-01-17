@@ -1,0 +1,160 @@
+$background-color:                  white   !default;
+$dark-blue:                         #002b52 !default;
+$bright-blue:                       #18b4ce !default;
+$green:                             #1da119 !default;
+$yellow:                            #ffcc00 !default;
+$red:                               #ff0033 !default;
+$ruby:								#cc0066 !default;
+$safety-orange:						#ff6600 !default;
+$orange-peel:						#ff9900 !default;
+$off-green:							#cccc00 !default;
+$purple:							#993399 !default;
+$dark-grey:							#464646 !default;
+
+$icon-green:                        #73F96F !default;
+$bright-green:                      $icon-green !default;
+
+$base-dark-blue:                    $dark-blue !default; //#002B52
+$sep-base-color:                    $dark-blue !default;
+$brand-success-color:               $bright-blue !default;
+$base-light-blue:                   $bright-blue !default; //#119EB5
+$primary-button-base-color:         $bright-blue !default;
+
+$brand-danger-color:                $red !default;
+
+$primary-button-hover-base-color:   $green !default;
+$brand-info-color:                  #1DA119 !default;
+$brand-warning-color:               #FF9900;
+$brand-error-color:                 #D94349;
+$brand-info-color-alert:            #73F96F !default;
+$brand-warning-color-alert:         #FFCC00;
+$brand-error-color-alert:           #FF0022;
+$bootstrap-danger:                  #D9534F;
+$bootstrap-success:                 #5CB85C;
+$bootstrap-primary:                 #007bff;
+$bootstrap-info:                    #17a2b8;
+$bootstrap-warning:                 #ffc107;
+$green-dot-in-top:                  $green !default;
+$bottom-in-submenu:                 $green !default;
+$brand-message-background:          #474747 !default;
+$brand-message-background-lighter-100:      lighten($brand-message-background, 10%) !default;
+$brand-message-background-darken-100:      darken($brand-message-background, 10%) !default;
+
+//gradient of blue
+$dark-blue-lighter-319:        lighten($dark-blue, 31.9%) !default;
+
+//shades of background
+
+$background-darker-02:        darken($background-color, 0.2%) !default;
+$background-darker-20:        darken($background-color, 2%)   !default;
+$background-darker-22:        darken($background-color, 2.2%) !default;
+$background-darker-40:        darken($background-color, 4%) !default;
+$background-darker-48:        darken($background-color, 4.8%) !default;
+$selected-background-color:   darken($background-darker-20, 4%) !default;
+$filter-background-color:     darken($background-darker-20, 4%) !default;
+$background-darker-55:        darken($background-color, 5.5%) !default;
+$background-darker-68:        darken($background-color, 6.8%) !default;
+$background-darker-82:        darken($background-color, 8.2%) !default;
+$background-darker-83:        darken($background-color, 8.3%) !default;
+$background-darker-95:        darken($background-color, 9.5%) !default;
+$background-darker-100:       darken($background-color, 10%) !default;
+$background-darker-102:       darken($background-color, 10.2%) !default;
+$background-darker-110:       darken($background-color, 11%) !default;
+$background-darker-140:       darken($background-color, 14%) !default;
+$background-darker-152:       darken($background-color, 15.2%) !default;
+$background-darker-170:       darken($background-color, 17%) !default;
+$background-darker-260:       darken($background-color, 26%) !default;
+$background-darker-263:       darken($background-color, 26.3%) !default;
+$background-darker-321:       darken($background-color, 32.1%);
+$background-darker-369:       darken($background-color, 36.9%) !default;
+$background-darker-600:       darken($background-color, 60%) !default;
+$background-darker-695:       darken($background-color, 69.5%) !default;
+$background-darker-700:       darken($background-color, 70%) !default;
+$background-darker-800:       darken($background-color, 80%) !default;
+$darkest:                     darken($background-color, 100%) !default;
+
+//other colors
+
+$inm-filter-border-color:     $base-light-blue !default;
+$brand-link-color:            hsl($hue: hue($inm-filter-border-color)+ 0.204150384, $saturation: max(0,min(100%,saturation($inm-filter-border-color)- 5.145879395%)), $lightness: min(100%,lightness($inm-filter-border-color)+ 6.862745098)) !default;
+$brand-warning-color:         hsl($hue: hue($inm-filter-border-color)- 0.186062718, $saturation: max(0,min(100%,saturation($inm-filter-border-color)- 2.183121538%)), $lightness: lightness($inm-filter-border-color)+ 3.725490196) !default;
+$light-for-grid-color:        hsl($hue: hue($inm-filter-border-color)+ 0.585365854, $saturation: max(0,min(100%,saturation($inm-filter-border-color)- 67.67676768%)), $lightness: min(100%,lightness($inm-filter-border-color)+ 35.29411765)) !default;
+$filter-internal-color:       hsl($hue: hue($inm-filter-border-color)- 0.042541123, $saturation: max(0,min(100%,saturation($inm-filter-border-color)- 1.696207357%)), $lightness: min(100%,lightness($inm-filter-border-color)+ 50.78431373)) !default;
+
+
+
+$ui-dark-color:               $base-dark-blue !default;
+$brand-primary-color:         hsl($hue: hue($ui-dark-color)- 0.615793287, $saturation: max(0,min(100%,saturation($ui-dark-color)-  1.94%)), $lightness: lightness($ui-dark-color)+ 4.117647059) !default;
+$general-link-color:          hsl($hue: hue($ui-dark-color)- 0.758807588, $saturation: max(0,min(100%,saturation($ui-dark-color)- 43.75%)), $lightness: lightness($ui-dark-color)+ 21.56862745) !default;
+$footer-text-color:           hsl($hue: hue($ui-dark-color)+ 0.352303523, $saturation: max(0,min(100%,saturation($ui-dark-color)- 67.47%)), $lightness: min(100%,lightness($ui-dark-color)+ 51.37254902)) !default;
+
+$main-menu-border-top: $background-darker-170 !default;
+
+$border-radius-base:        0px !default;
+$border-radius-large:       0px !default;
+$border-radius-small:       0px !default;
+
+$sep-header-color: $ui-dark-color;
+
+$general-body-text-color: $background-darker-600;
+
+$inactive-menu-link: $ui-dark-color;
+$footer-background: $ui-dark-color;
+$grid-float-breakpoint: 480px;
+$navbar-min-height: 44px;
+
+$text-muted: $brand-success-color !default;
+$abbr-border-color: $brand-warning-color !default;
+$headings-small-color: $brand-warning-color !default;
+
+$font-family-base: 'Open Sans', sans-serif !default;
+
+//Buttons colors:
+//PRIMARY NORMAL
+$primary-normal-button-border: 1px solid          $brand-success-color;
+
+$primary-normal-button-border-hover:              hsl($hue: hue($primary-button-hover-base-color)- 0.352526439, $saturation: max(0,min(100%,saturation($primary-button-hover-base-color)+ 0.326116496%)), $lightness: max(0,min(100%,lightness($primary-button-hover-base-color)- 6.470588235%))) !default;
+$primary-normal-button-inner-bottom-hover-color:  $primary-button-hover-base-color;
+$primary-normal-button-inner-top-hover-color:     hsl($hue: hue($primary-normal-button-border-hover)+ 0.260135135, $saturation: max(0,min(100%,saturation($primary-normal-button-border-hover)- 3.458646617%)), $lightness: max(0,min(100%,lightness($primary-normal-button-border-hover)+ 13.1372549%))) !default;
+
+
+$primary-normal-button-inner-top-color:           $primary-button-base-color;
+$primary-normal-button-inner-bottom-color:        hsl($hue: hue($primary-button-base-color)+ 0.155844156, $saturation: max(0,min(100%,saturation($primary-button-base-color)- 3.784138082%)), $lightness: lightness($primary-button-base-color)- 6.078431373%) !default;
+$primary-normal-button-inner-hover-color:         $primary-button-base-color;
+
+$primary-normal-button-font-size: 13px;
+$primary-normal-button-color: $background-color;
+$primary-normal-button-min-width: 80px;
+
+//SECONDARY NORMAL
+$secondary-normal-button-border: 1px solid          $background-darker-263;
+$secondary-normal-button-border-hover: 1px solid    $background-darker-369;
+$secondary-normal-button-inner-top-color:           $background-darker-40;
+$secondary-normal-button-inner-top-hover-color:     $background-darker-68;
+$secondary-normal-button-inner-bottom-color:        $background-darker-83;
+$secondary-normal-button-inner-bottom-hover-color:  $background-darker-170;
+$secondary-normal-button-color:                     $background-darker-695;
+$secondary-normal-button-font-size: 13px;
+$secondary-normal-button-min-width: 80px;
+
+//DISABLED
+$disabled-font-color:       $background-darker-263;
+$disabled-border:           $background-darker-152;
+$disabled-top-gradient:     $background-darker-20;
+$disabled-bottom-gradient:  $background-darker-55;
+
+//PRIMARY SMALL
+$primary-small-button-font-size: 10px;
+$primary-small-button-min-width: 70px;
+
+//SECONDARY SMALL
+$secondary-small-button-font-size: 10px;
+$secondary-small-button-min-width: 70px;
+
+// Footer height
+$footer-height: 38px;
+
+//grid color
+$grid-background: rgb(242, 242, 242);
+$grid-header-background: rgba(219, 219, 219, 1);
+$grid-footer-background: rgba(234, 234, 234, 1);

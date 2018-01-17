@@ -1,0 +1,38 @@
+slot-in-tag {
+  display: inline-block;
+  color: white;
+  background: #ED2B88;
+  border-radius: 6px;
+  min-width: 325px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+
+  > .theader {
+    margin: 16px 0;
+
+    > h3 {
+      font-weight: bold;
+      font-family: 'Source Sans Pro';
+      letter-spacing: 4px;
+      font-size: 32px;
+    }
+
+    > h4 {
+      margin-top: 0;
+      font-family: sans-serif;
+      font-size: 18px;
+    }
+  }
+
+  > .tbody {
+    background: white;
+    color: black;
+    padding: 32px 8px;
+    font-size: 42px;
+    font-family: cursive;
+  }
+
+  > .tfooter {
+    height: 16px;
+  }
+}

@@ -1,0 +1,15 @@
+@Library('CAA-Ceres-CI')
+import com.inmarsat.caa.Leto
+
+leto = new Leto()
+
+node('master') {
+    wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
+        slack_stage('Prepare', ':nodejs:'){
+            leto.prepare()
+        }
+        slack_stage('Docker', ':docker:'){
+            leto.makePrdImage()
+        }
+    }
+}

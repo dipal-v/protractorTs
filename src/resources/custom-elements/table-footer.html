@@ -1,0 +1,20 @@
+<template>
+    <div class="row">
+		<div class="col-sm-6 result-per-page">
+			<span class="page-size">${pageSize}</span> <span i18n="common.perPage"></span>
+		</div>
+		<div class="col-sm-6">
+			<div class="pull-right">
+				<div style="float:left; margin-right: 10px; line-height:25px;" class="pagerControl">
+					<button class="pagingButton" click.delegate="firstPage($event)" i18n="[title]buttons.firstPage"><div class="icon-pageback10"></div></button>
+					<button class="pagingButton" click.delegate="prevPage($event)" i18n="[title]buttons.prevPage"><div class="icon-pageback1"></div></button>
+					<span class="ngGridMaxPagesNumber" i18n="common.page"></span>
+					<input readonly class="ngPagerCurrent" min="1" max="${totalPages}" style="width:50px; height: 24px; margin-top: 0px; padding: 0 4px;" value.bind="currentPage">
+					<span class="ngGridMaxPagesNumber"><span class="ngGridMaxPagesNumber" i18n="common.of"></span> ${totalPages}</span>
+					<button class="pagingButton" click.delegate="nextPage($event)" i18n="[title]buttons.nextPage"><div class="icon-pageforward1"></div></button>
+					<button class="pagingButton" click.delegate="lastPage($event)" i18n="[title]buttons.lastPage"><div class="icon-pageforward10"></div></button>
+				</div>
+			</div>
+		</div>
+    </div>
+</template>

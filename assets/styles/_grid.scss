@@ -1,0 +1,510 @@
+/* GRIDS */
+.ngPagerCurrent {
+  border: 0px;
+}
+.ngGrid {
+  background-color: $background-color;
+}
+.ngVerticalBarVisible {
+  width: 1px;
+  background-color: transparent;
+}
+.ngVerticalHeaderBarVisible {
+  width: 1px;
+  background-color: $background-darker-260;
+}
+.ngHeaderContainer {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: inherit;
+  border-bottom: 1px solid $background-darker-260;
+}
+.ngTopPanel {
+  position: relative;
+  z-index: 1;
+  background-color: $background-darker-140;
+  border-bottom: 1px solid $background-darker-170;
+}
+.ngSortPriority {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 10px;
+}
+.ngHeaderText {
+  padding: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: $ui-dark-color;
+  font-size: 13px;
+  font-weight: bold;
+}
+.ngUnPinnedIcon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAlElEQVQoU33PPQrCQBRF4fFnI2KfZVi5ARvdgo1l6mwmkCJVOgluwd5OwUoDtnoOxAei8cLXTN7cvEl/skCNDCMPfsUPO5zQwOHIDEvYtMURHe6wOVLgigvOePRyeDkyR4ln7wZ//7XfFBu8B23+aDJjrHGAwza7hjtHJvDmHg7b7Bru7AMjK7Rw2ObBVHDY5oGk9AKQNB2zy8MBTgAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  right: 5px;
+  top: 5px;
+}
+.ngColMenu {
+  right: 2px;
+  padding: 5px;
+  top: 25px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: $filter-internal-color;
+  position: absolute;
+  border: 2px solid $background-darker-170;
+  z-index: 1;
+}
+.ngColListCheckbox {
+  position: relative;
+  right: 3px;
+  top: 4px;
+}
+.ngColList {
+  list-style-type: none;
+  margin-top: 2px;
+  margin-left: 8px;
+}
+.ngColListItem {
+  white-space: nowrap;
+}
+.ngMenuText {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+.ngGroupPanel {
+  background-color: $background-darker-110;
+  overflow: hidden;
+  border-bottom: 1px solid $background-darker-170;
+}
+.ngGroupPanelDescription {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.ngGroupList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.ngAggHeader {
+  position: absolute;
+  border: none;
+}
+.ngGroupElement {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+.ngGroupIcon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAEFJREFUKFNjoAhISkr+h2J5JDZODNXGwGBsbPwfhIGAA8bGh6HaGBiAGhxAGJmND4M1gQCSM0adCsVQbcPcqQwMALWDGyDvWPefAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  right: -2px;
+  top: 2px;
+}
+.ngGroupedByIcon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAElJREFUKFNjoAhISkr+R8LyaHwMDNXGwGBsbPwfhoGAA5mPDUO1oWpE52PDYE0gALTFAYbR+dgwWBMIoPlh1I9ADNU2NPzIwAAAFQYI9E4OLvEAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  right: -2px;
+  top: 2px;
+}
+.ngGroupName {
+  background-color: $background-darker-02;
+  border: 1px solid $background-darker-170;
+  padding: 3px 10px;
+  float: left;
+  margin-left: 0;
+  margin-top: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.ngGroupArrow {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid black;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  float: right;
+}
+.ngGroupingNumber {
+  position: absolute;
+  right: -10px;
+  top: -2px;
+}
+.ngAggArrowCollapsed {
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8.7px;
+  border-color: transparent transparent transparent $darkest;
+}
+.ngGroupItem {
+  float: left;
+}
+.ngGroupItem:first-child {
+  margin-left: 2px;
+}
+.ngRemoveGroup {
+  width: 5px;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+  margin-top: -1px;
+  margin-left: 5px;
+}
+.ngRemoveGroup:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+}
+.ngAggArrowExpanded {
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 9px 9px;
+  border-color: transparent transparent $darkest transparent;
+}
+.ngAggregate {
+  position: absolute;
+  background-color: $background-darker-170;
+  border-bottom: 1px solid beige;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  left: 0;
+}
+.ngAggregateText {
+  position: absolute;
+  left: 27px;
+  top: 5px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.ngRow {
+  position: absolute;
+  border-bottom: 1px solid $background-darker-170;
+}
+.ngRow.odd {
+  background-color: $background-color;
+}
+.ngRow.even {
+  background-color: $background-darker-20;
+}
+.ngRow.selected {
+  background-color: $selected-background-color;
+}
+.ngCell {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: inherit;
+}
+.ngCell.pinned {
+  z-index: 1;
+}
+.ngCellText {
+  padding: 5px;
+  padding-left:15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ngSelectionCell {
+  margin-top: 9px;
+  margin-left: 6px;
+}
+.ngSelectionHeader {
+  position: absolute;
+  top: 11px;
+  left: 6px;
+}
+.ngCellElement:focus {
+  outline: 0;
+  background-color: $light-for-grid-color;
+}
+.ngRow.canSelect {
+  cursor: pointer;
+}
+.ngSelectionCheckbox {
+  margin-top: 9px;
+  margin-left: 6px;
+}
+.ngFooterPanel {
+  background-color: $background-darker-82;
+  padding: 0;
+  border-top: 1px solid $background-darker-260;
+  border-bottom: 1px solid $background-darker-260;
+  position: relative;
+}
+.nglabel {
+  display: block;
+  float: left;
+  font-weight: bold;
+  padding-right: 5px;
+}
+.ngTotalSelectContainer {
+  float: left;
+  margin: 5px;
+  margin-top: 7px;
+}
+.ngFooterSelectedItems {
+  padding: 2px;
+}
+.ngFooterTotalItems.ngnoMultiSelect {
+  padding: 0 !important;
+}
+.ngGridMaxPagesNumber {
+  vertical-align: middle;
+}
+.ngPagerFirstBar {
+  width: 10px;
+  border-left: 2px solid $background-darker-700;
+  margin-top: -6px;
+  height: 12px;
+  margin-left: -3px;
+}
+.ngPagerButton {
+  height: 25px;
+  min-width: 26px;
+}
+.ngPagerFirstTriangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 8.7px 5px 0;
+  border-color: transparent $background-darker-700 transparent transparent;
+  margin-left: 2px;
+}
+.ngPagerNextTriangle {
+  margin-left: 1px;
+}
+.ngPagerPrevTriangle {
+  margin-left: 0;
+}
+.ngPagerLastTriangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8.7px;
+  border-color: transparent transparent transparent $background-darker-700;
+  margin-left: -1px;
+}
+.ngPagerLastBar {
+  width: 10px;
+  border-left: 2px solid $background-darker-700;
+  margin-top: -6px;
+  height: 12px;
+  margin-left: 1px;
+}
+.ngFooterTotalItems {
+  padding: 2px;
+}
+
+.gridStyle {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0px;
+}
+
+.ngSortButtonDown, .ngSortButtonUp {
+  right: 0px;
+  top: 20px;
+  border-top-color: $brand-link-color;
+  border-bottom-color: $brand-link-color;
+  border-right-color: transparent;
+  margin-right: 15px;
+
+}
+
+.ngCellText a {
+  color: $brand-link-color;
+  cursor: pointer;
+}
+
+.ngViewport{
+  height:auto !important;
+}
+.ngCanvas, .ngViewport, .ngRow, .ngFooterPanel, .ngTopPanel   {
+  width: 100% !important;
+}
+.ngRow {
+  border-bottom:none !important;
+}
+
+
+/* Table */
+.table {
+  z-index: 1;
+  background-color: $background-darker-82;
+  padding: 0;
+  border-top: 1px solid $background-darker-260;
+  border-bottom: 1px solid $background-darker-260;
+}
+
+.table > .th {
+  font-size: 13px;
+}
+
+tr.odd-table-row {
+  background-color: $background-color;
+}
+
+tr.even-table-row {
+  background-color: $background-darker-20;
+}
+
+.table > tbody > tr > td.grid-cell {
+  border: 0px;
+  padding-left: 15px;
+}
+
+.table > tbody > tr > th.grid-header {
+  padding: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: $ui-dark-color;
+  background-color: $background-darker-140;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid $background-darker-260;
+}
+
+.table > tbody > tr > th.grid-header {
+  border-left: 0px;
+}
+
+.table > tbody > tr > td > div > a:hover{
+  cursor: pointer;
+}
+
+.table > tbody > tr > th.grid-header:last-child {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+div.table-footer {
+  background-color: $grid-footer-background;
+  font-size: 12px;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-left: 5px;
+  .page-size{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .result-per-page{
+    margin-top: 5px;
+  }
+}
+
+.empty-row {
+  height: 20px;
+  background-color: #ffffff;
+}
+
+.selected-true{
+  background-color: #f0f0f0 !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.ag-fresh {
+  .ag-ltr {
+    .ag-cell-no-focus{
+      border: 0 !important;
+      padding-left: 10px !important;
+    }
+    .ag-header-cell {
+      border-right: 1px solid white !important;
+    }
+  }
+
+  .ag-cell{
+    margin-top: 4px;
+  }
+  
+  .ag-cell-focus{
+    border: 0 !important;
+    padding-left: 10px !important;
+  }
+
+  .ag-header-cell-menu-button{
+    margin-top: 8px;
+  }
+  
+  .ag-header-cell-label{
+    text-align: left;
+    padding-left: 10px !important;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+
+  .ag-root {
+    border: 1px solid white !important;
+    border-bottom: 0px !important;
+  }
+
+  .ag-header{
+    background: $grid-header-background !important;
+    border-bottom: 0px !important;
+  }
+
+  .ag-row-odd{
+    background-color: $grid-background !important;
+  }
+
+  .ag-paging-row-summary-panel{
+    content: "<b>maha</b>";
+  }
+}
+
+.ag-body-viewport{
+  background-color: $grid-background !important;
+}

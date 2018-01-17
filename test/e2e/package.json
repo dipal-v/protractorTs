@@ -1,0 +1,21 @@
+{
+  "name": "aurelia-cucumber-typescript-example",
+  "version": "1.0.0",
+  "description": "test cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor protractor.conf.js"
+  },
+  "author": "C.W",
+  "license": "ISC",
+  "devDependencies": {
+    "aurelia-protractor-plugin": "^1.0.5",
+    "chromedriver": "^2.31.0",
+    "cucumber": "^2.3.1",
+    "protractor": "^5.1.2",
+    "protractor-cucumber-framework": "^3.1.2",
+    "selenium-webdriver": "^3.5.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  }
+}

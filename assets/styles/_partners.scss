@@ -1,0 +1,53 @@
+.scrollArea {
+  height:   50%;
+  overflow: auto;
+}
+
+.partners-center-content {
+  display:table;
+  height:300px;
+}
+
+.partners-content {
+  display:table;
+  width:100%;
+  height:100%;
+}
+.partners-table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.letter-container {
+  display: inline;
+  white-space: nowrap;
+  padding-right: 10px;
+  padding-bottm: 35px;
+}
+
+.dp-field {
+  display: inline;
+  white-space: nowrap;
+}
+
+.partner-odd{
+  background-color: $background-darker-20;
+}
+.partner-even{
+  background-color: $background-color;
+}
+
+.partner-letters-separator {
+  padding-top: 20px;
+}
+
+.partners-container {
+  overflow: auto;
+  position: fixed;
+  top: 108px;
+  bottom: 140px;
+  right: 0px;
+  margin-left:auto;
+  margin-right: auto;
+}

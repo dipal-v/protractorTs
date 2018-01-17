@@ -1,0 +1,23 @@
+<template>
+  <div class="col-sm-5">
+    <div class="form-group">
+      <label class="control-label dialog-form-label required" if.bind="mediumType==='Phone'"><span i18n="contacts.telephone"></span></label>
+      <label class="control-label dialog-form-label required" if.bind="mediumType==='Email'"><span i18n="contacts.email"></span></label>
+      <label class="control-label dialog-form-label required" if.bind="mediumType==='URL'"><span i18n="contacts.url"></span></label>
+      <input id="mediumValue" type="text" class="form-control" value.bind="medium.value & validate">
+    </div>
+  </div>
+  <div class="col-sm-3 col-sm-offset-1">
+    <div class="form-group down-20-px">
+      <label class="checkbox-inline" id="allow-contact">
+        <input type="checkbox" checked.bind="medium.allowContact"> <span i18n="contacts.allowContact"></span>
+      </label>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group down-20-px">
+      <button class="btn" click.trigger="addMedium()" i18n="buttons.contactAddMedium" id="addMediumToList"></button>
+      <button class="btn btn-warning" click.trigger="hideMedium()" i18n="buttons.cancel"></button>
+    </div>
+  </div>
+</template>

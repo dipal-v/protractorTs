@@ -1,0 +1,12 @@
+<template>
+    <div class="alert message row" show.bind="message != null">
+  <i class.bind="'message-icon-' + message.type + ' pull-left'"></i>
+
+  <div class="col-xs-11">
+    <div class.bind="'message-text-' + message.type ">${message.text}
+    </div>
+  </div>
+  <span class="close-msg pull-right" click.delegate="clear()">×</span>
+
+</div>
+</template>

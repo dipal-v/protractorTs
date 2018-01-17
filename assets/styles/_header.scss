@@ -1,0 +1,37 @@
+.nav-top {
+  margin-bottom: 0px;
+}
+
+.logo-medium {
+  height: 55px;
+}
+
+.page-title {
+  font-size: 32px;
+  color: $sep-base-color;
+  border-bottom: 1px dotted grey;
+  margin-bottom: 15px;
+}
+
+.page-title.filter-panel {
+  border-bottom: 0px dotted grey;
+  margin-bottom: 0px;
+}
+
+.single-grid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.header-link {
+  padding-top: 23px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.app-logo {
+  padding-top: 25px;
+  height: 54px;
+}

@@ -1,0 +1,185 @@
+<template>
+    <require from="components/tab-content.html"></require>
+    <require from="resources/custom-elements/time-stamp"></require>
+    <require from="resources/custom-elements/messages"></require>
+    <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+    <tab-content>
+        <form role="form" class="form-horizontal">
+            <input type="hidden" value.bind="person.legalEntityCode" />
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="h3" id="pageTitle">${heading}</p>
+                </div>
+                <div class="col-sm-6 text-right header-right-buttons">
+                    <button id="updateButton" class="btn btn-primary btn-sm" type="submit" click.delegate="update()" i18n="buttons.submit"></button>
+                    <a id="cancelButton" class="btn btn-default btn-sm" route-href="route: persons;" i18n="buttons.cancel"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.entityCode"></span></label>
+                        <div class="col-sm-8">
+                            <label class="control-label data-label">${person.legalEntityCode}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.entityType"></span></label>
+                        <label class="col-sm-8 control-label data-label">${person.type}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label">
+                            <span i18n="person.prefix"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="prefix" class="form-control" value.bind="person.details.prefix">
+                                <option repeat.for="option of prefixes" value.bind='option.value'>${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label">
+                            <span i18n="person.givenName"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input type="text" value.bind="person.details.givenName & validate" class="form-control" i18n="[placeholder]person.givenName"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label">
+                            <span i18n="person.surname"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input type="text" value.bind="person.details.surname & validate" class="form-control" i18n="[placeholder]person.surname"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label">
+                            <span i18n="person.suffix"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input type="text" value.bind="person.details.suffix & validate" class="form-control" i18n="[placeholder]person.suffix" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label">
+                            <span i18n="person.jobTitle"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input id="jobTitle" type="text" value.bind="person.details.jobTitle & validate" class="form-control" i18n="[placeholder]person.jobTitle"
+                            />
+                        </div>
+                    </div><div class="form-group">
+                        <label class="col-sm-4 control-label required form-label">
+                            <span i18n="entity.alias"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input type="text" value.bind="person.alias & validate" class="form-control" i18n="[placeholder]entity.alias" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label">
+                            <span i18n="entity.language"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select value.bind="person.language & validate" class="form-control">
+                                <option repeat.for="option of languageOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label required form-label">
+                            <span i18n="entity.collector"></span>
+                        </label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <input type="text" value.bind="person.collector & validate" class="form-control" i18n="[placeholder]entity.collector" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="contacts.preferredContactMedium"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select id="preferredContactMedium" class="form-control" value.bind="person.details.preferredContactMedium & validate">
+                                <option repeat.for="option of person.details.mediums" value.bind="option.type">${option.type}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.created"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <div>
+                                <time-stamp date.bind="person.createdDate" />
+                            </div>
+                            <div>
+                                <span i18n="common.by"></span> ${person.createdBy}</div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="entity.modified"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <div>
+                                <time-stamp date.bind="person.lastModifiedDate" />
+                            </div>
+                            <div>
+                                <span i18n="common.by"></span> ${person.lastModifiedBy}</div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="common.startDate"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <time-stamp date.bind="person.startDate" />
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="common.endDate"></span></label>
+                        <label class="col-sm-8 control-label data-label">
+                            <time-stamp date.bind="person.endDate" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="h3" i18n="contacts.mediums"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label form-label"><span i18n="contacts.mediumType"></span></label>
+                        <div class="col-sm-8 validation-wrapper">
+                            <select class="form-control" value.bind="chosenMediumType">
+                                <option repeat.for="option of mediumDropdownOptions" value.bind="option.value">${option.value}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-sm-4">
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn btn-default" click.trigger="showMediumDialog()" id="addMedium" i18n="buttons.addMedium"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div style="width: 100%; height: 150px">
+                    <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height:100%" grid-options.bind="mediumsGrid.gridOptions">
+                        <ag-grid-column i18n='[header-name]contacts.mediumType' field='type'></ag-grid-column>
+                        <ag-grid-column i18n='[header-name]contacts.value' field='value'></ag-grid-column>
+                        <ag-grid-column i18n='[header-name]contacts.actions' field="type">
+                            <ag-cell-template>
+                                <ag-button-cell-renderer delete-event="deleteMedium" id="${params.value}"></ag-button-cell-renderer>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                    </ag-grid-aurelia>
+                </div>
+            </div>
+        </form>
+    </tab-content>
+</template>

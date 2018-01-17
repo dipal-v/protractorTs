@@ -1,0 +1,73 @@
+.additional-block-header {
+  padding-bottom: 5px;
+  color: $background-color;
+  font-size: 20px;
+}
+
+.common-tasks {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.common-tasks a{
+  color: $bright-green;
+}
+
+h2 a {
+  font-size: 13px;
+  &:before {
+    content: "(";
+  }
+  &:after {
+    content: ")";
+  }
+  color: $bright-blue;
+}
+
+.fraud-box.well {
+  background-color: $dark-blue-lighter-319;
+  color: $bright-blue;
+}
+
+.vcenter{
+  display: table-cell;
+  vertical-align: center;
+  float: none;
+}
+
+.fraud-numbers {
+  font-size: 38px;
+}
+
+.fraud-box .fraud-number-container{
+  text-align: center;
+}
+
+.fraud-box a {
+  color: $background-color;
+}
+
+.common-task-box.well {
+  background-color: $green;
+  color: $bright-green;
+}
+
+.add-filter-info-panel {
+  float: left;
+  text: 12px #2c2c2c;
+  height: 27px;
+  background-color: #CFF4FA;
+  border: 1px solid #119EB5;
+  padding: 5px 5px 5px 5px;
+  margin: 0px 0px 0px 10px;
+}
+
+.close-filter-info-panel {
+  background: url(../images/inmarsat_tag_remove.png) no-repeat center center;
+  display: block;
+  float: right;
+  width :13px;
+  height: 27px;
+  cursor: pointer;
+  cursor: hand;
+}

@@ -1,0 +1,261 @@
+<template>
+    <require from="components/tab-content.html"></require>
+    <require from="resources/custom-elements/messages"></require>
+    <require from="resources/custom-elements/time-stamp"></require>
+    <require from="resources/custom-elements/switch-button"></require>
+    <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+    <require from="resources/custom-elements/aurelia-grid-footer"></require>
+    <tab-content>
+        <form role = "form" class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="h3" id="pageTitle">${entity.details.primaryName}</p>
+                </div>
+                <div class="col-sm-6 text-right header-right-buttons">
+                    <a id="modifyButton" class = "btn btn-primary btn-sm" type = "button" route-href="route: updateOrganisation; params.bind: {id:entity.legalEntityCode}" i18n="buttons.modify"></a>
+                    <button id="updateEndDate" class = "btn btn-default btn-sm" type = "button" click.trigger="openConfirm()" i18n="${entity.endDate ? 'buttons.activate' : 'buttons.deactivate'}"></button>
+                    <a id="backButton" class="btn btn-default btn-sm" route-href="route: organisations;" i18n="buttons.back"></a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.entityCode"></span></label>
+                <label class="col-sm-4 control-label data-label">${entity.legalEntityCode}</label>
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.created"></span></label>
+                <label class="col-sm-4 control-label data-label">
+                    <div><time-stamp date.bind="entity.createdDate"/></div>
+                    <div><span i18n="common.by"></span> ${entity.createdBy}</div>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.entityType"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.type}</label>
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.modified"></span></label>
+                <label class="col-sm-4 control-label data-label">
+                    <div><time-stamp date.bind="entity.lastModifiedDate"/></div>
+                    <div><span i18n="common.by"></span> ${entity.lastModifiedBy}</div>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.organiztionType"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.details.type}</label>
+                <label class="col-sm-2 control-label form-label"><span i18n="common.startDate"></span></label>
+                <label class="col-sm-4 control-label data-label"><time-stamp date.bind="entity.startDate"/></label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.parent"></span></label>
+                <label class="col-sm-4 control-label data-label" id="parentValue"><a route-href="route: viewOrganisation; params.bind: {id:entity.parentCode}">${entity.parentName}</a></label>
+                <label class="col-sm-2 control-label form-label"><span i18n="common.endDate"></span></label>
+                <label class="col-sm-4 control-label data-label"><time-stamp id="endDateValue" date.bind="entity.endDate"/></label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.alias"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.alias}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.legalName"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.details.legalName}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.language"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.language}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.creditRegion"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.details.creditRegion}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.collector"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.collector}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.creditStatus"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.details.creditStatus}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label form-label"><span i18n="entity.serviceLevelAgreement"></span></label>
+                <label class="col-sm-4 control-label data-label" >${entity.details.serviceLevelAgreement}</label>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <p class="h3" i18n="entity.blockingStatus"></p>
+                    </div>
+                    <div class="col-sm-11 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label"><span i18n="entity.ordering"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button checked.two-way="entity.details.orderingBlock" disable="true"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.orderingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                            <label class="col-sm-2 control-label form-label"><span i18n="entity.delivery"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button checked.two-way="entity.details.deliveryBlock"  disable="true"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.deliveryBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label"><span i18n="entity.posting"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button checked.two-way="entity.details.postingBlock" disable="true"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.postingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                            <label class="col-sm-2 control-label form-label"><span i18n="entity.billing"></span></label>
+                            <div class="col-sm-4">
+                                <switch-button checked.two-way="entity.details.billingBlock" disable="true"
+                                               on-text="Not Blocked" off-text="Blocked" on-color="danger" off-color="default" handle-width=100 label-width=20
+                                             class="${entity.details.billingBlock ? 'danger': 'default'}"></switch-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" i18n="entity.children"></p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <a id="createChildButton" class = "btn btn-primary btn-sm" route-href="route: createOrganisation;params.bind: {parentCode: entity.legalEntityCode, parentName: entity.details.primaryName }" i18n="buttons.createChildEntity"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%; height: 300px" id="childrenGrid">
+                <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="childrenGrid.gridOptions">
+                        <ag-grid-column i18n="[header-name]entity.entityCode" field='legalEntityCode'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]entity.primaryName" field='details.primaryName'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]entity.creditRegion" field='details.creditRegion'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]entity.createdDate" field='createdDate'>
+                            <ag-cell-template>
+                                <time-stamp date="${params.value}"></time-stamp>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                </ag-grid-aurelia>
+                </div>
+                <div class="col-sm-12">
+                    <div class="table-footer">
+                        <aurelia-grid-footer grid.bind="childrenGrid" if.bind="initDataLoaded"></aurelia-grid-footer>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" i18n="contacts.contacts"></p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <button class = "btn btn-primary btn-sm" click.delegate="addContact()" i18n="buttons.newContact" id="addContact"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%; height: 300px" id="contactsGrid">
+                    <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="contactsGrid.gridOptions">
+                        <ag-grid-column i18n="[header-name]contacts.givenName" field='givenName'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]contacts.surname" field='surname'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]contacts.jobTitle" field='jobTitle'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]contacts.language" field='language'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]contacts.email" field='email'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]contacts.telephone" field='telephone'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]common.actions" field="id">
+                            <ag-cell-template>
+                                <ag-button-cell-renderer edit-event="updateContact" id="${params.value}"></ag-button-cell-renderer>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                    </ag-grid-aurelia>
+                </div>
+                <div class="col-sm-12">
+                    <div class="table-footer">
+                        <aurelia-grid-footer grid.bind="contactsGrid" if.bind="initDataLoaded"></aurelia-grid-footer>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" i18n="address.addresses"></p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <button class="btn btn-primary btn-sm" click.delegate="addAddress()" i18n="buttons.newAddress" id="addAddress"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%; height: 300px" id="addressesGrid">
+                    <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="addressesGrid.gridOptions">
+                        <ag-grid-column i18n="[header-name]address.addressLine1" field='addressLine1'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]address.city" field='city'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]address.stateProvince" field='stateProvince'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]address.postalCode" field='postalCode'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]address.country" field='country'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]common.actions" field="id">
+                            <ag-cell-template>
+                                <ag-button-cell-renderer edit-event="updateAddress" id="${params.value}"></ag-button-cell-renderer>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                    </ag-grid-aurelia>
+                </div>
+                <div class="col-sm-12">
+                    <div class="table-footer">
+                        <aurelia-grid-footer grid.bind="addressesGrid" if.bind="initDataLoaded"></aurelia-grid-footer>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" i18n="account.accounts"></p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <button class="btn btn-primary btn-sm" click.delegate="addAccount()" i18n="buttons.newAccount" id="addAccount"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%; height: 300px" id="accountsGrid">
+                    <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="accountsGrid.gridOptions">
+                        <ag-grid-column i18n="[header-name]account.name" field='name'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]account.type" field='type'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]account.paymentMethod" field='paymentMethod'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]account.statementIndicator" field='statementIndicator'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]account.comments" field='comments'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]common.actions" field="accountNumber">
+                            <ag-cell-template>
+                                <ag-button-cell-renderer edit-event="updateAccount" id="${params.value}"></ag-button-cell-renderer>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                    </ag-grid-aurelia>
+                </div>
+                <div class="col-sm-12">
+                    <div class="table-footer">
+                        <aurelia-grid-footer grid.bind="accountsGrid" if.bind="initDataLoaded"></aurelia-grid-footer>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="h3" i18n="site.sites"></p>
+                </div>
+                <div class="col-sm-3 text-right header-right-buttons">
+                    <button class="btn btn-primary btn-sm" click.delegate="addSite()" i18n="buttons.newSite" id="addSite"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%; height: 300px" id="sitesGrid">
+                    <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="sitesGrid.gridOptions">
+                        <ag-grid-column i18n="[header-name]site.name" field='name'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]site.type" field='type'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]site.subType" field='subType'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]site.callSign" field='callSign'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]site.country" field='country'></ag-grid-column>
+                        <ag-grid-column i18n="[header-name]common.actions" field="id">
+                            <ag-cell-template>
+                                <ag-button-cell-renderer edit-event="updateSite" id="${params.value}"></ag-button-cell-renderer>
+                            </ag-cell-template>
+                        </ag-grid-column>
+                    </ag-grid-aurelia>
+                </div>
+                <div class="col-sm-12">
+                    <div class="table-footer">
+                        <aurelia-grid-footer grid.bind="sitesGrid" if.bind="initDataLoaded"></aurelia-grid-footer>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </tab-content>
+</template>

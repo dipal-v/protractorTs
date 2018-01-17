@@ -1,0 +1,94 @@
+.close-msg {
+  width:26px;
+  height:26px;
+  border-radius: 50%;
+  text-align:center;
+  text-decoration:none;
+  font-size: 18px;
+  font-weight:bold;
+  background: $brand-message-background;
+  border: 0px;
+  cursor: pointer;
+  color:gray;
+  padding: 0px;
+}
+
+.close-msg:hover {
+  color: white;
+  background: $brand-message-background-lighter-100;
+  border: 0px;
+  box-shadow: -1px -1px 1px $brand-message-background-darken-100;
+}
+
+.message {
+  background-color: $brand-message-background;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  vertical-align: middle;
+}
+
+[class^="message-icon-"], [class*=" message-icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 32px;
+  padding-right:10px;
+   vertical-align: middle;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.message-icon-success:before {
+  font-variant: normal;
+  content: "\e647";
+  color: $brand-info-color-alert;
+}
+
+.message-icon-info:before {
+  font-variant: normal;
+  content: "\e648";
+  color: $brand-info-color-alert;
+}
+
+.message-icon-warning:before {
+  font-variant: normal;
+  content: "\e649";
+  color: $brand-warning-color-alert;
+}
+
+.message-icon-error:before {
+  font-variant: normal;
+  content: "\e64e";
+  color: $brand-error-color-alert;
+}
+
+[class^="message-text-"], [class*=" message-text-"] {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.message-text-error {
+  color: $brand-error-color-alert;
+}
+
+.message-text-info {
+  color: $brand-info-color-alert;
+}
+
+.message-text-success {
+  color: $brand-info-color-alert;
+}
+
+.message-text-warning {
+  color: $brand-warning-color-alert;
+}
+
+.error-reports-buttons {
+  padding-top: 20px;
+}

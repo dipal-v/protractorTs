@@ -1,0 +1,57 @@
+<template>
+  <require from="components/tab-content.html"></require>
+  <require from="resources/custom-elements/table-footer"></require>
+  <require from="resources/custom-elements/time-stamp"></require>
+  <tab-content>
+    <h1 i18n="page.persons.allEntities"></h1>
+
+    <div class="row">
+      <div class="col-sm-8 col-xs-12">
+        <form class="form-inline">
+          <select id='searchFilter' class="form-control" value.bind="searchField">
+            <option repeat.for="option of searchFields" value.bind="option.searchTerm">${option.uiTerm}</option>
+          </select>
+          <input id='searchValue' class="form-control" value.bind="searchValue">
+	        <input  id="regexCheckbox" type="checkbox" checked.bind="isRegexSearch"> <span i18n="page.useRegex"></span>
+          <button id='searchButton' class="btn" click.trigger="doSearch()" i18n="buttons.search"></button>
+          <button class="btn" if.bind="searched" click.trigger="doSearchReset()" i18n="buttons.clear"></button>
+        </form>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="pull-right">
+          <a id="createPerson" class="btn btn-primary btn-sm" i18n="buttons.newPerson" route-href="route: createPerson;"></a>
+        </div>
+      </div>
+    </div>
+    <p/>
+    <div class="row">
+        <div class="col-sm-12 entity-grid">
+          <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height: 100%" grid-options.bind="entitiesGird.gridOptions">
+              <ag-grid-column i18n="[header-name]entity.entityCode" field='legalEntityCode'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]person.prefix" field='details.prefix'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]person.givenName" field='details.givenName'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]person.surname" field='details.surname'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]person.jobTitle" field='details.jobTitle'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]contacts.language" field='language'></ag-grid-column>
+              <ag-grid-column i18n="[header-name]entity.createdDate" field='createdDate'>
+                  <ag-cell-template>
+                      <time-stamp date="${params.value}"></time-stamp>
+                    </ag-cell-template>
+              </ag-grid-column>
+          </ag-grid-aurelia>
+		  <div class="table-footer">
+			  <table-footer
+				  first.delegate="firstPage()"
+				  prev.delegate="prevPage()"
+				  next.delegate="nextPage()"
+				  last.delegate="lastPage()"
+				  total-pages.bind="totalPages"
+				  page-size.bind="pageSize"
+				  current-page.bind="currentPage">
+			  </table-footer>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </tab-content>
+</template>

@@ -1,0 +1,77 @@
+{
+    "name": "Leto Application",
+    "version": "1.0.0",
+    "ux": "2.13",
+    "mock": {
+        "name": "mock",
+        "version": "0.5.0",
+        "database": "0.3.0",
+        "api": {
+            "version": "1.0.5-SNAPSHOT"
+        },
+        "oauthBase": "http://localhost:3000",
+        "oauthUrl": "/fakeoauth",
+        "oauthClientID": "LegalEntityIM",
+        "oauthRedirectUrl": "http://localhost:8080",
+        "apiHost": "http://localhost:3000/",
+        "apiSearchParamsTemplate": "<%= key %>_like=<%= value %>",
+        "legalEntityContentEndPoint": "identity/content",
+        "legalEntityEndPoint": "identity/legalentity",
+        "corporateApiHost": "http://localhost:3000/",
+        "corporateContentEndPoint": "identity/corporate-language"
+    },
+    "local": {
+        "name": "local",
+        "version": "0.5.0",
+        "database": "0.3.0",
+        "api": {
+            "version": "1.0.5-SNAPSHOT"
+        },
+        "oauthBase": "https://identity.inmarsat.com",
+        "oauthUrl": "/as/authorization.oauth2" ,
+        "oauthClientID": "LegalEntityIM",
+        "oauthRedirectUrl": "http://ceres.local:8080/",
+        "apiHost": "https://management-legal-entity-v1-identity-dev.89d9.dev-inmarsat.openshiftapps.com/",
+        "apiSearchParamsTemplate": "<%= key %>=<%= value %>",
+        "legalEntityContentEndPoint": "identity/legalentity/content",
+        "legalEntityEndPoint": "identity/legalentity",
+        "corporateApiHost": "https://content-reference-v1-corporate-dev.89d9.dev-inmarsat.openshiftapps.com/",
+        "corporateContentEndPoint": "corporate/content"
+    },
+    "staging": {
+        "name": "stage",
+        "version": "0.5.0",
+        "database": "0.3.0",
+        "api": {
+            "version": "1.0.5-SNAPSHOT"
+        },
+        "oauthBase": "https://identity.inmarsat.com",
+        "oauthUrl": "/as/authorization.oauth2" ,
+        "oauthClientID": "LegalEntityIM",
+        "oauthRedirectUrl": "http://35.189.119.42/",
+        "apiHost": "https://management-legal-entity-v1-identity-dev.89d9.dev-inmarsat.openshiftapps.com/",
+        "apiSearchParamsTemplate": "<%= key %>=<%= value %>",
+        "legalEntityContentEndPoint": "identity/legalentity/content",
+        "legalEntityEndPoint": "identity/legalentity",
+        "corporateApiHost": "https://content-reference-v1-corporate-dev.89d9.dev-inmarsat.openshiftapps.com/",
+        "corporateContentEndPoint": "corporate/content"
+    },
+    "production": {
+        "name": "prod",
+        "version": "0.5.0",
+        "database": "0.3.0",
+        "api": {
+            "version": "1.0.5-SNAPSHOT"
+        },
+        "oauthBase": "https://identity.inmarsat.com",
+        "oauthUrl": "/as/authorization.oauth2" ,
+        "oauthClientID": "LegalEntityIM",
+        "oauthRedirectUrl": "http://35.189.120.202/",
+        "apiHost": "https://management-legal-entity-v1-identity-sit.89d9.dev-inmarsat.openshiftapps.com/",
+        "apiSearchParamsTemplate": "<%= key %>=<%= value %>",
+        "legalEntityContentEndPoint": "identity/legalentity/content",
+        "legalEntityEndPoint": "identity/legalentity",
+        "corporateApiHost": "https://content-reference-v1-corporate-sit.89d9.dev-inmarsat.openshiftapps.com/",
+        "corporateContentEndPoint": "corporate/content"
+    }
+}

@@ -1,0 +1,44 @@
+.pagingButton {
+  color: $general-body-text-color;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.pagerControl .ngPagerControl, .ngGridMaxPagesNumber {
+  vertical-align: top;
+}
+
+button.pagingButton {
+  border: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-image: none;
+  background-color: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important; // IE9 and down
+}
+
+button.pagingButton:hover {
+  border: 0px;
+  color: $brand-link-color;
+  background-image: none;
+  background-color: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important; // IE9 and down
+}
+
+button.pagingButton:active {
+  color: $brand-success-color;
+  background-image: none;
+  background-color: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important; // IE9 and down
+}
+
+.ngPagerCurrent {
+  vertical-align: top;
+}
+
+.ngFooterPanel {
+  background-color: $background-darker-82;
+  padding: 0;
+  border-top: 1px solid $background-darker-170;
+  position: relative;
+}

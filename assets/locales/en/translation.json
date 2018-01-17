@@ -1,0 +1,215 @@
+{
+    "common": {
+        "na": "N/A",
+        "pleaseSelect": "Please Select",
+        "by": "by",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "actions": "Actions",
+        "page": "page",
+        "of": "of",
+        "perPage": "results per page"
+    },
+    "buttons":{
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "modify": "Modify",
+        "deactivate": "Deactivate",
+        "activate": "Activate",
+        "back": "Back",
+        "yes": "Yes",
+        "no": "No",
+        "createChildEntity": "+ New Child Entity",
+        "newContact": "+ New Contact",
+        "newAccount": "+ New Account",
+        "newAddress": "+ New Address",
+        "newSite": "+ New Site",
+        "newOrganisation": "+ New Organisation",
+        "newPerson": "+ New Person",
+        "addMedium": "Add Medium",
+        "addShippingDetails": "Add Shipping Details",
+        "addShippingDetail": "Add",
+        "contactAddMedium": "+",
+        "create": "Create",
+        "update": "Update",
+        "search": "Search",
+        "clear": "Clear",
+        "add": "Add",
+        "firstPage": "First Page",
+        "lastPage": "Last Page",
+        "prevPage": "Previous Page",
+        "nextPage": "Next Page"
+    },
+    "entity": {
+        "primaryName": "Primary Name",
+        "created": "Created",
+        "entityCode": "Entity Code",
+        "parent": "Parent Entity",
+        "modified": "Modified",
+        "createdDate": "Created Date",
+        "alias": "Alias",
+        "language": "Language",
+        "creditRegion": "Credit Region",
+        "collector": "Collector",
+        "entityType": "Entity Type",
+        "ordering": "Ordering",
+        "billing": "Billing",
+        "delivery": "Delivery",
+        "posting": "Posting",
+        "organiztionType": "Organiztion Type",
+        "legalName": "Legal Name",
+        "creditStatus": "Credit Status",
+        "serviceLevelAgreement": "Service Level Agreement",
+        "blockingStatus": "Blocking Status",
+        "children": "Children",
+        "legalEntityCode": "Legal Entity",
+        "type": "Legal Entity Type",
+        "person": "Person",
+        "organisation": "Organisation"
+    },
+    "person": {
+        "surname": "Surname",
+        "givenName": "Given Name",
+        "prefix": "Prefix",
+        "suffix": "Suffix",
+        "jobTitle": "Job Title",
+        "mediumDialog": {
+            "title": "Medium Dialog"
+        }
+    },
+    "contacts": {
+        "dialog": {
+            "title": "New Contact",
+            "updateTitle": "Update Contact"
+        },
+        "phoneNumber": "Phone number",
+        "value": "Value",
+        "contacts": "Contacts",
+        "givenName": "Given Name",
+        "surname": "Surname",
+        "jobTitle": "Job Title",
+        "language": "Language",
+        "prefix": "Prefix",
+        "suffix": "Suffix",
+        "email": "Email",
+        "url": "Web Address",
+        "telephone": "Telephone",
+        "phoneType": "Phone Type",
+        "mediumType": "Contact Medium",
+        "preferredContactMedium": "Preferred Contact Medium",
+        "allowContact": "Allow Contact",
+        "actions": "Actions",
+        "mediums": "Mediums"
+    },
+    "site": {
+        "dialog": {
+            "title": "New Site",
+            "updateTitle": "Update Site"
+        },
+        "sites": "Sites",
+        "name": "Name",
+        "callSign": "Call Sign",
+        "imoNumber": "IMO Number",
+        "mmsi": "MNSI",
+        "tailNumber": "Tail Number",
+        "icaoNumber": "ICAO Number",
+        "country": "Country",
+        "address": "Address",
+        "contacts": "Contacts",
+        "type": "Site Type",
+        "subType": "Site Sub Type"
+    },
+    "account": {
+        "dialog": {
+            "title": "New Account",
+            "updateTitle": "Update Account"
+        },
+        "accounts": "Accounts",
+        "accountNumber": "Account Number",
+        "postingAccount": "Posting Account",
+        "type": "Account Type",
+        "post": "Posting Account",
+        "name": "Account Name",
+        "comments": "Comments",
+        "invoiceReportLevel": "Invoice Report Level",
+        "invoiceFormat": "Invoice Format",
+        "paymentMethod": "Payment Method",
+        "statementIndicator": "Statement Indicator",
+        "invoicePrintPriority": "Invoice Print Priority",
+        "billingAddress": "Billing Address",
+        "billingContact": "Billing Contact",
+        "shippingDetails": "Shipping Details",
+        "shippingAddress": "Shipping Address",
+        "shippingContact": "Shipping Contact",
+        "sites": "Sites"
+    },
+    "address":{
+        "dialog": {
+            "title": "New Address",
+            "updateTitle": "Update Address"
+        },
+        "addresses": "Addresses",
+        "addressLine1": "Address Line 1",
+        "addressLine2": "Address Line 2",
+        "addressLine3": "Address Line 3",
+        "careOfName": "Care of Name",
+        "city": "City",
+        "dist": "District",
+        "stateProvince": "State/Province",
+        "country": "Country",
+        "postalCode": "Postcode",
+        "postalCodeExt": "Postalcode Ext",
+        "poBox": "P O Box"
+    },
+    "page":{
+      "title": "Welcome to Leto",
+      "useRegex": "Use Regular Expression",
+        "organisations": {
+            "allEntities": "All Customers",
+            "title": "Customers"
+        },
+        "persons": {
+            "allEntities": "All Persons",
+            "title": "Persons"
+        },
+        "notAuthorized": {
+            "title": "Not Authorized"
+        },
+        "redirect": {
+            "title": "Redirect"
+        },
+        "createEntity":{
+            "title": "Create",
+            "heading": "New Organisation"
+        },
+        "modifyEntity":{
+            "title": "Update",
+            "heading": "Modify"
+        },
+        "createPerson":{
+            "title": "Create",
+            "heading": "New Person"
+        },
+        "modifyPerson":{
+            "title": "Update",
+            "heading": "Modify"
+        },
+        "viewOrganisation": {
+            "title": "View Organisation"
+        },
+        "viewPerson": {
+            "title": "View Person"
+        }
+    },
+    "dialogs": {
+        "confirm": {
+            "heading": "Are you sure?",
+            "yes": "Please click yes",
+            "activate": "to activate",
+            "deactivate": "to deactivate"
+        }
+    },
+    "messages": {
+        "validation-error": "Please fix the validations in highlighted fields."
+    }
+}

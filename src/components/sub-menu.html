@@ -1,0 +1,13 @@
+<template bindable="router">
+    
+<div class="navbar navbar-default navbar-main">
+    <div id="submenu" class="container submenu">
+        <ul class="nav navbar-nav second-level" >
+            <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+                    <a href.bind="row.href">${row.title}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</template>

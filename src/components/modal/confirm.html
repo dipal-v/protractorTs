@@ -1,0 +1,14 @@
+<template>
+    <ux-dialog>
+        <ux-dialog-header>
+            <h3>${modal.heading}</h3>
+        </ux-dialog-header>
+        <ux-dialog-body>
+            <p>${modal.body}</p>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button id="yesButton" class="btn btn-sm btn-primary" click.trigger="controller.ok(person)" i18n="buttons.yes"></button>
+            <button id="noButton" class="btn btn-sm btn-default" click.trigger="controller.cancel()" i18n="buttons.no"></button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

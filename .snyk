@@ -1,0 +1,26 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.10.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:ag-grid:20160128':
+    - ag-grid:
+        reason: no upgrade available
+        expires: '2018-02-01T11:17:06.038Z'
+  'npm:tunnel-agent:20170305':
+    - gulp-sass > node-sass > request > tunnel-agent:
+        reason: no upgrade available
+        expires: '2018-02-01T10:40:24.010Z'
+    - gulp-sass > node-sass > request > tunnel-agent:
+        reason: no upgrade available
+        expires: '2018-02-01T11:17:06.038Z'
+    - gulp-sass > node-sass > node-gyp > request > tunnel-agent:
+        reason: no upgrade available
+        expires: '2018-02-01T11:17:06.038Z'
+  'npm:tough-cookie:20170905':
+    - gulp-sass > node-sass > request > tough-cookie:
+        reason: No upgrade available
+        expires: '2018-02-01T11:47:36.032Z'
+    - gulp-sass > node-sass > node-gyp > request > tough-cookie:
+        reason: No upgrade available
+        expires: '2018-02-01T11:47:36.032Z'
+patch: {}

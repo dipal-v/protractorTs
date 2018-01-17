@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "esnext",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"sourceRoot": "src",
+		"sourceMap": true,
+		"allowJs": true,
+		"baseUrl": "src",
+		"lib": [
+			"es2017", "dom"
+		],
+		"skipLibCheck": true
+	},
+	"exclude": [
+		"node_modules",
+		"ceres-generator",
+		"**/*Spec.ts",
+		"dist",
+		"static"
+	]
+}

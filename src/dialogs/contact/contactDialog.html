@@ -1,0 +1,127 @@
+<template>
+  <require from="dialogs/contact/mediumWidget"></require>
+  <require from="resources/custom-elements/date-picker"></require>
+  <require from="resources/custom-elements/ag-button-cell-renderer"></require>
+  <ux-dialog class="new-contact form-dialog">
+    <ux-dialog-header>
+      <div class="header">
+        <span if.bind="!isUpdate" i18n="contacts.dialog.title" id="dialogHeader"></span>
+        <span if.bind="isUpdate" i18n="contacts.dialog.updateTitle" id="dialogHeader"></span>
+      </div>
+    </ux-dialog-header>
+    <ux-dialog-body class="new-contact-body">
+      <form role="form" class="form-horizontal">
+        <!-- first row -->
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="contacts.prefix"></span></label>
+              <select id="prefix" class="form-control" value.bind="contact.prefix">
+                <option repeat.for="option of prefixes" value.bind='option.value'>${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="contacts.suffix"></span></label>
+              <input id="suffix" type="text" class="form-control" value.bind="contact.suffix" attach-focus="true">
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="contacts.jobTitle"></span></label>
+              <input id="jobTitle" type="text" class="form-control" value.bind="contact.jobTitle">
+            </div>
+          </div>
+        </div>
+        <!-- second row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label required"><span i18n="contacts.surname"></span></label>
+              <input id="surname" type="text" class="form-control" value.bind="contact.surname & validate">
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label required"><span i18n="contacts.givenName"></span></label>
+              <input id="givenName" type="text" class="form-control" value.bind="contact.givenName & validate">
+            </div>
+          </div>
+        </div>
+        <!-- third row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label required"><span i18n="common.startDate"></span></label>
+              <date-picker id="startDate" value.two-way="contact.startDate & validate"></date-picker>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="common.endDate"></span></label>
+              <date-picker id="endDate" start-date.bind="contact.startDate" value.two-way="contact.endDate & validate"></date-picker>
+            </div>
+          </div>
+        </div>
+        <!-- fourth row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="contacts.language"></span></label>
+              <select value.bind="contact.language & validate" class="form-control">
+                <option repeat.for="option of languageOptions" value.bind="option.value">${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+              <label class="control-label dialog-form-label required"><span i18n="contacts.preferredContactMedium"></span></label>
+              <select id="preferredContactMedium" class="form-control" value.bind="contact.preferredContactMedium & validate">
+                <option repeat.for="option of contact.mediums" value.bind="option.type">${option.type}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- fifth row -->
+        <div class="row" if.bind="showAddPanel">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <label class="control-label dialog-form-label"><span i18n="contacts.mediumType"></span></label>
+              <select id='mediumDropdown' class="form-control" value.bind="chosenMediumType">
+                <option repeat.for="option of mediumDropdownOptions" value.bind="option.value">${option.value}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2 col-sm-offset-1 down-20-px">
+            <button class="btn" click.trigger="showMedium()" id="addMedium" i18n="buttons.addMedium"></button>
+          </div>
+        </div>
+        <div class="row" if.bind="showMediumPanel">
+          <medium-widget label.bind="chosenMediumType" medium-type.bind="currentMedium.type" add.delegate="addMedium($event)" cancel.delegate="hideMedium($event)">
+        </div>
+        <!-- last row -->
+        <div class="row">
+          <div style="width: 100%; height: 150px">
+            <ag-grid-aurelia #agGrid class="ag-fresh" style="width: 100%;height:100%" grid-options.bind="mediumsGrid.gridOptions">
+              <ag-grid-column i18n='[header-name]contacts.mediumType' field='type'></ag-grid-column>
+              <ag-grid-column i18n='[header-name]contacts.value' field='value'></ag-grid-column>
+              <ag-grid-column i18n='[header-name]contacts.allowContact' field='allowContact'></ag-grid-column>
+              <ag-grid-column i18n='[header-name]common.actions' field="type">
+                <ag-cell-template>
+                  <ag-button-cell-renderer delete-event="deleteMedium" id="${params.value}"></ag-button-cell-renderer>
+                </ag-cell-template>
+              </ag-grid-column>
+            </ag-grid-aurelia>
+          </div>
+        </div>
+      </form>
+    </ux-dialog-body>
+    <ux-dialog-footer>
+      <button if.bind="!isUpdate" class="primary" click.trigger="submit()" id="contactDialogButton" i18n="buttons.create"></button>
+      <input if.bind="isUpdate" type="hidden" value.bind="contact.id"/>
+      <button if.bind="isUpdate" class="primary" click.trigger="submit()" id="contactDialogButton" i18n="buttons.update"></button>
+      <button click.trigger="controller.cancel()" i18n="buttons.cancel" id="dialogCancel"></button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>

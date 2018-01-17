@@ -1,0 +1,57 @@
+.dl {
+    dd:after {
+        display: table;
+        content: "";
+        clear: both;
+    }
+}
+
+.record-info dt {
+    text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.record-info dd {
+    font-weight: normal;
+}
+
+.record-id {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.voucher-tile {
+  background: $dark-blue-lighter-319;
+  color: $background-color;
+  height: 100px;
+}
+
+.voucher-tile-title{
+  font-size: 20px;
+}
+
+.voucher-numbers-container {
+  text-align: center;
+}
+
+.voucher-numbers-color {
+  color: $bright-blue;
+}
+
+.voucher-numbers {
+  font-size: 32px;
+}
+
+.voucher-numbers-small {
+  font-size: 18px;
+}
+
+.voucher-serial-number {
+  padding-left: 20px;
+  padding-top: 4px;
+}
+
+.voucher-numbers-note {
+  font-size: 10px;
+}

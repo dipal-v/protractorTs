@@ -1,0 +1,34 @@
+<template>
+    <ux-dialog class="form-dialog">
+        <ux-dialog-header>
+            <div class="header">
+                <span i18n="person.mediumDialog.title"></span>
+            </div>
+        </ux-dialog-header>
+        <ux-dialog-body>
+            <form role="form">
+	        <div class="row">
+	            <div class="form-group">
+	                <label class="control-label dialog-form-label required" if.bind="mediumType==='Phone'"><span i18n="contacts.telephone"></span></label>
+	                <label class="control-label dialog-form-label required" if.bind="mediumType==='Email'"><span i18n="contacts.email"></span></label>
+	                <label class="control-label dialog-form-label required" if.bind="mediumType==='URL'"><span i18n="contacts.url"></span></label>
+                        <div class="validation-required">
+	                    <input id="mediumValue" type="text" class="form-control" value.bind="localMedium.value & validate" attach-focus="true">
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                <input type="checkbox" checked.bind="localMedium.allowContact"> <span i18n="contacts.allowContact"></span>
+                                </label>
+                            </div>
+                        </div>
+	            </div>
+	        </div>
+            </form>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button class="primary" click.trigger="done()" id="addMediumToList" i18n="buttons.add"></button>
+            <button click.trigger="controller.cancel()" i18n="buttons.cancel" id="dialogCancel"></button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

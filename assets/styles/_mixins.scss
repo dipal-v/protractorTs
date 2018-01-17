@@ -1,0 +1,11 @@
+@mixin border-gradient($color) {
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from($color), to(rgba(0, 0, 0, 0))) 1 25%;
+  -webkit-border-image:                         -webkit-linear-gradient($color, rgba(0, 0, 0, 0)) 1 25%;
+  -moz-border-image:                               -moz-linear-gradient($color, rgba(0, 0, 0, 0)) 1 25%;
+  -o-border-image:                                   -o-linear-gradient($color, rgba(0, 0, 0, 0)) 1 25%;
+  border-image: linear-gradient(to bottom, $color, rgba(0, 0, 0, 0)) 1 25%;
+}
+
+@mixin background-gradient($fromColor, $toColor) {
+  @include gradient-vertical($fromColor, $toColor);
+}

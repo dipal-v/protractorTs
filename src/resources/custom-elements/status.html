@@ -1,0 +1,6 @@
+<template>
+    <require from='resources/value-converters/space-to-hyphen'></require>
+    <div class="status-${status.toLowerCase() | spaceToHyphen}">
+      <i class="icon-status-${status.toLowerCase() | spaceToHyphen}"></i>${status}
+    </div>
+</template>

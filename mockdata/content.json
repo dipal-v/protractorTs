@@ -1,0 +1,504 @@
+{
+  "content":[
+    {
+        "Aircraft": "Aircraft",
+        "type": "siteType"
+    },
+    {
+        "Vessel": "Vessel",
+        "type": "siteType"
+    },
+        {
+        "BBU": "Bulker",
+        "type": "vesselSubType"
+    },
+    {
+        "BCB": "Bulker With Container Capacity",
+        "type": "vesselSubType"
+    },
+    {
+        "BCE": "Bulk Cement Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "BOR": "Bulk Ore Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "BWC": "Wood-Chip Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "CBO": "Combined Bulk And Oil Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "CCR": "Car Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "DDR": "Dredger",
+        "type": "vesselSubType"
+    },
+    {
+        "DHD": "Hopper Dredger",
+        "type": "vesselSubType"
+    },
+    {
+        "DTS": "Trailing Suction Hoppper Dredger",
+        "type": "vesselSubType"
+    },
+    {
+        "FFC": "Fish Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "FFF": "Fish Factory",
+        "type": "vesselSubType"
+    },
+    {
+        "FFP": "Fishery Protection",
+        "type": "vesselSubType"
+    },
+    {
+        "FFS": "Fishing (General)",
+        "type": "vesselSubType"
+    },
+    {
+        "FTR": "Trawler (All Types)",
+        "type": "vesselSubType"
+    },
+    {
+        "FWF": "Whale Factory",
+        "type": "vesselSubType"
+    },
+    {
+        "FWH": "Whaler",
+        "type": "vesselSubType"
+    },
+    {
+        "GGC": "General Cargo",
+        "type": "vesselSubType"
+    },
+    {
+        "GPC": "Part Containerised Gen. Cargo Vsl",
+        "type": "vesselSubType"
+    },
+    {
+        "GRF": "Refrigerated General Cargo",
+        "type": "vesselSubType"
+    },
+    {
+        "HEL": "Helicopter",
+        "type": "vesselSubType"
+    },
+    {
+        "HLC": "Heavy Lift Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "LDM": "Land or Handheld Mobile Only",
+        "type": "vesselSubType"
+    },
+    {
+        "LNG": "Liquid Natural Gas Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "LNP": "Combined Lng And Lpg Gas Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "LPG": "Liquid Petroleum Gas Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "MLV": "Livestock",
+        "type": "vesselSubType"
+    },
+    {
+        "MPR": "Passenger (Cruise)",
+        "type": "vesselSubType"
+    },
+    {
+        "MVE": "Vehicle Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "NAV": "Naval Vessel",
+        "type": "vesselSubType"
+    },
+    {
+        "NAX": "Naval Auxiliary Vessel",
+        "type": "vesselSubType"
+    },
+    {
+        "OBA": "Barge",
+        "type": "vesselSubType"
+    },
+    {
+        "OBO": "Ore/Bulk/Oil Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "OCL": "Cable Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "OCS": "Crane Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "ODS": "Diving Support",
+        "type": "vesselSubType"
+    },
+    {
+        "OHC": "Open Hatch Cargo Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "OHL": "Semi-Sub Hl Vessel",
+        "type": "vesselSubType"
+    },
+    {
+        "OLC": "Landing Craft",
+        "type": "vesselSubType"
+    },
+    {
+        "OMT": "Maintenance",
+        "type": "vesselSubType"
+    },
+    {
+        "OPC": "Pollution Control Vessel",
+        "type": "vesselSubType"
+    },
+    {
+        "OPO": "Pontoon",
+        "type": "vesselSubType"
+    },
+    {
+        "OSU": "Support",
+        "type": "vesselSubType"
+    },
+    {
+        "OSY": "Supply",
+        "type": "vesselSubType"
+    },
+    {
+        "OSZ": "Standby Safety VesseL",
+        "type": "vesselSubType"
+    },
+    {
+        "OTB": "Tank Barge",
+        "type": "vesselSubType"
+    },
+    {
+        "OTR": "Training",
+        "type": "vesselSubType"
+    },
+    {
+        "OWO": "Work Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "PCC": "Pure Car Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "PCT": "Pure Car & Truck Car",
+        "type": "vesselSubType"
+    },
+    {
+        "PRR": "Passenger Ro/Ro",
+        "type": "vesselSubType"
+    },
+    {
+        "ROR": "Oceanographic Research",
+        "type": "vesselSubType"
+    },
+    {
+        "RRE": "Research",
+        "type": "vesselSubType"
+    },
+    {
+        "RSR": "Seismographic Research",
+        "type": "vesselSubType"
+    },
+    {
+        "TAC": "Acid Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TAS": "Asphalt Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TCH": "Chemical Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TCO": "Combined Chemical and Oil Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TFJ": "Fruit Juice Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TMO": "Molasses Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TNA": "Naval Auxiliary Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TOI": "Oil Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TPD": "Product Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TST": "Testing Purposes Only",
+        "type": "vesselSubType"
+    },
+    {
+        "TTA": "Non Specific Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "TWT": "Water Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "UBG": "Barge Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "UCC": "Container Carrier",
+        "type": "vesselSubType"
+    },
+    {
+        "URC": "Roll On/Off w/Container Capacity",
+        "type": "vesselSubType"
+    },
+    {
+        "URR": "Roll-On / Roll-Off",
+        "type": "vesselSubType"
+    },
+    {
+        "VRT": "Virtual Billing Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "WNT": "Wine Tanker",
+        "type": "vesselSubType"
+    },
+    {
+        "XAF": "Anchor Handlng FireFghtng Tug/Sply",
+        "type": "vesselSubType"
+    },
+    {
+        "XAH": "Anchor Handling Tug/Supply",
+        "type": "vesselSubType"
+    },
+    {
+        "XAT": "Anchor Handling Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XCT": "Catamaran Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XFS": "Fire Fighting Tug/Supply",
+        "type": "vesselSubType"
+    },
+    {
+        "XPT": "Pusher Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XST": "Salvage Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XTG": "Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XTR": "Tractor Tug",
+        "type": "vesselSubType"
+    },
+    {
+        "XTS": "Tug/Supply",
+        "type": "vesselSubType"
+    },
+    {
+        "YDP": "Drill Platform",
+        "type": "vesselSubType"
+    },
+    {
+        "YDS": "Drill Ship",
+        "type": "vesselSubType"
+    },
+    {
+        "YXT": "Yacht",
+        "type": "vesselSubType"
+    },
+    {
+      "Credit": "Credit Card",
+      "type": "paymentMethod"
+    },
+    {
+      "Cash": "Cash",
+      "type": "paymentMethod"
+    },
+    {
+      "Wire": "Wire Transfer",
+      "type": "paymentMethod"
+    },
+    {
+      "Inv": "Invoice",
+      "type": "invoiceReportLevel"
+    },
+    {
+      "Stat": "Statement",
+      "type": "invoiceReportLevel"
+    },
+    {
+      "Det": "Detailed",
+      "type": "invoiceFormat"
+    },
+    {
+      "Sum": "Summary",
+      "type": "invoiceFormat"
+    },
+    {
+      "SumRet": "Summary with Retail DIR",
+      "type": "invoiceFormat"
+    },
+    {
+      "SumWho": "Summary with Wholesale DIR",
+      "type": "invoiceFormat"
+    },
+    {
+      "Chq": "Cheque",
+      "type": "paymentMethod"
+    },
+    {
+      "type": "legalEntityType",
+      "Org": "Organisation"
+    },
+    {
+      "type": "legalEntityType",
+      "Per": "Person"
+    },
+    {
+      "type": "organisationType",
+      "Corp": "Corporation"
+    },
+    {
+      "type": "organisationType",
+      "Part": "Partnership"
+    },
+    {
+      "type": "organisationType",
+      "Ltd Part": "Limited Partnership"
+    },
+    {
+      "type": "organisationType",
+      "Ltd Lia": "Limited Liability"
+    },
+    {
+      "type": "organisationType",
+      "Nat Acct": "National Account"
+    },
+    {
+      "type": "creditRegion",
+      "EMEA": "EUROPE, MIDDLE EAST, AFRICA"
+    },
+    {
+      "type": "creditRegion",
+      "AM": "AMERICAS"
+    },
+    {
+      "type": "creditRegion",
+      "XC": "Xantic Conversion"
+    },
+    {
+      "type": "creditRegion",
+      "APAC": "ASIA PACIFIC"
+    },
+    {
+      "type": "creditStatus",
+      "01": "Regular"
+    },
+    {
+      "26": "Credit Hold",
+      "type": "creditStatus"
+    },
+    {
+      "29": "High Risk",
+      "type": "creditStatus"
+    },
+    {
+      "30": "Bankruptcy",
+      "type": "creditStatus"
+    },
+    {
+      "32": "Third Party",
+      "type": "creditStatus"
+    },
+    {
+      "31": "High Risk Credit Hold",
+      "type": "creditStatus"
+    },
+    {
+      "34": "Appr W/Offs",
+      "type": "creditStatus"
+    },
+    {
+      "33": "Third Party Write Off",
+      "type": "creditStatus"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Customer": "Tier 2"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Customer": "Tier 1"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Customer": "Elite Customer"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Customer": "Standard"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Customer": "Tier 3"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Site": "Legacy Maritime"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Site": "Xpresslink Basic"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Site": "Xpresslink Standard"
+    },
+    {
+      "type": "serviceLevelAgreement",
+      "Site": "Xpresslink Premium"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+//Filter panel
+.filter-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  background-color: $filter-background-color;
+  border-top: 1px solid transparent;
+  border-right: 1px solid $main-menu-border-top;
+  border-bottom: 1px solid $main-menu-border-top;
+
+}
+.filter-details {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dotted $main-menu-border-top;
+  border-top: 1px dotted $main-menu-border-top;
+}
+.filter-container {
+  margin-bottom: 15px;
+}
+
+//Form-control
+.form-control {
+  border-radius: 0px;
+  font-size: 12px;
+  border-bottom-left-radius: 0px;
+  position: relative;
+}
+
+.filter {
+  background-color: $inm-filter-border-color;
+  padding: 1px;
+  margin-left: 10px;
+  display: table;
+  border-collapse: separate;
+  margin-bottom:2px;
+}
+
+.filter p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: table-cell;
+  background-color: $filter-internal-color;
+}
+
+.close {
+  padding-top: 0px;
+  font-size: 12px;
+  color: $background-color;
+}
+.close:hover, .close:focus {
+  color: $background-color;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  border: 0px;
+  background-color: transparent;
+}
+
+button.close {
+  height: 23px;
+}
+
+select.form-control {
+  border: 1px solid $main-menu-border-top;
+  border-radius: 0;
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+  -moz-appearance: none;  /*Removes default style Firefox*/
+  text-indent: 0.01px;          /* Removes default arrow from firefox*/
+  text-overflow: "";
+}
+
+span.select {
+  position: absolute;
+  bottom: 0;
+  float: left;
+  left: 80px;
+  cursor: default;
+  z-index: 1;
+  font-family: 'Glyphicons Halflings';
+  text-overflow: "E\e114";
+}
+
+.select-button {
+  font-size: 12px;
+  height: 34px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  min-width: 160px;
+}
